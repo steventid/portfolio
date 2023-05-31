@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/tire_squeal.ogg-78ea881a0a05ae44decb96456c7b8255.oggstr"
+
+[deps]
+
+source_file="res://sound/tire_squeal.ogg"
+dest_files=[ "res://.import/tire_squeal.ogg-78ea881a0a05ae44decb96456c7b8255.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,10 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[ext_resource path="res://scenes/HUD/DroidSans-Bold.ttf" type="DynamicFontData" id=1]
+
+[resource]
+size = 25
+outline_size = 5
+outline_color = Color( 0.00784314, 0.00784314, 0.00784314, 1 )
+extra_spacing_top = 2
+font_data = ExtResource( 1 )

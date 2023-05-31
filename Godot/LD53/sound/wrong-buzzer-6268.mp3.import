@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/wrong-buzzer-6268.mp3-11bcc7a89a794eafbd73b3f6fb109056.mp3str"
+
+[deps]
+
+source_file="res://sound/wrong-buzzer-6268.mp3"
+dest_files=[ "res://.import/wrong-buzzer-6268.mp3-11bcc7a89a794eafbd73b3f6fb109056.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

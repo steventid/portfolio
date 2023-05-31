@@ -1,0 +1,129 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scenes/main_menu/startmenu.gd" type="Script" id=1]
+[ext_resource path="res://sound/mouse_over.wav" type="AudioStream" id=2]
+[ext_resource path="res://sound/select.wav" type="AudioStream" id=3]
+[ext_resource path="res://textures/lava_1_diffuseOriginal.png" type="Texture" id=4]
+[ext_resource path="res://textures/Phone_3.png" type="Texture" id=5]
+[ext_resource path="res://scenes/main_menu/DroidSans.tres" type="DynamicFont" id=6]
+[ext_resource path="res://scenes/main_menu/DroidSans-Bold.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 66
+outline_size = 7
+outline_color = Color( 0.00784314, 0.00784314, 0.00784314, 1 )
+extra_spacing_top = 2
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.67451, 0.341176, 0.341176, 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "fade"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="background" type="TextureRect" parent="."]
+margin_right = 2048.0
+margin_bottom = 2048.0
+rect_scale = Vector2( 0.498385, 0.291243 )
+texture = ExtResource( 4 )
+stretch_mode = 1
+
+[node name="title" type="RichTextLabel" parent="."]
+margin_left = 297.0
+margin_right = 702.0
+margin_bottom = 91.0
+custom_colors/default_color = Color( 0.992157, 0.678431, 0.00784314, 1 )
+custom_fonts/normal_font = SubResource( 1 )
+text = " Uber - Heck"
+
+[node name="phone_background" type="RichTextLabel" parent="."]
+margin_left = 341.0
+margin_top = 117.0
+margin_right = 381.0
+margin_bottom = 157.0
+rect_scale = Vector2( 8.34027, 10.3443 )
+custom_styles/normal = SubResource( 2 )
+
+[node name="Phone3" type="Sprite" parent="."]
+position = Vector2( 507, 337 )
+scale = Vector2( 0.255225, 0.171228 )
+texture = ExtResource( 5 )
+
+[node name="tutorial" type="Button" parent="."]
+margin_left = 382.0
+margin_top = 151.0
+margin_right = 529.0
+margin_bottom = 189.0
+rect_scale = Vector2( 1.7151, 1.68302 )
+custom_fonts/font = ExtResource( 6 )
+text = "How to play"
+
+[node name="startgame" type="Button" parent="."]
+margin_left = 382.0
+margin_top = 242.0
+margin_right = 530.0
+margin_bottom = 283.0
+rect_scale = Vector2( 1.69388, 1.72973 )
+custom_fonts/font = ExtResource( 6 )
+text = "Start Game"
+
+[node name="credits" type="Button" parent="."]
+margin_left = 382.0
+margin_top = 347.0
+margin_right = 481.0
+margin_bottom = 385.0
+rect_scale = Vector2( 2.52525, 1.72973 )
+custom_fonts/font = ExtResource( 6 )
+text = "Credits"
+
+[node name="exitgame" type="Button" parent="."]
+margin_left = 382.0
+margin_top = 452.0
+margin_right = 518.0
+margin_bottom = 490.0
+rect_scale = Vector2( 1.85926, 1.61111 )
+custom_fonts/font = ExtResource( 6 )
+text = "Exit Game"
+
+[node name="fade" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
+
+[node name="fader" type="AnimationPlayer" parent="."]
+anims/fade = SubResource( 3 )
+
+[node name="mouse_over" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -5.0
+
+[node name="mouse_select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[connection signal="mouse_entered" from="tutorial" to="." method="_on_tutorial_mouse_entered"]
+[connection signal="pressed" from="tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="mouse_entered" from="startgame" to="." method="_on_startgame_mouse_entered"]
+[connection signal="pressed" from="startgame" to="." method="_on_startgame_pressed"]
+[connection signal="mouse_entered" from="credits" to="." method="_on_credits_mouse_entered"]
+[connection signal="pressed" from="credits" to="." method="_on_credits_pressed"]
+[connection signal="mouse_entered" from="exitgame" to="." method="_on_exitgame_mouse_entered"]
+[connection signal="pressed" from="exitgame" to="." method="_on_exitgame_pressed"]
+[connection signal="animation_finished" from="fader" to="." method="_on_fader_animation_finished"]

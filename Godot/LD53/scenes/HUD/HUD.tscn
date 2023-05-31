@@ -1,0 +1,869 @@
+[gd_scene load_steps=34 format=2]
+
+[ext_resource path="res://scenes/HUD/DroidSans.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scenes/HUD/Phone_3.png" type="Texture" id=2]
+[ext_resource path="res://scenes/main_menu/DroidSans-Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scenes/HUD/HUD.gd" type="Script" id=4]
+[ext_resource path="res://sound/phone-vibration-96623.mp3" type="AudioStream" id=5]
+[ext_resource path="res://sound/wrong-buzzer-6268.mp3" type="AudioStream" id=6]
+[ext_resource path="res://sound/success.ogg" type="AudioStream" id=7]
+[ext_resource path="res://sound/accept.mp3" type="AudioStream" id=8]
+[ext_resource path="res://sound/cash-register-fake-88639.mp3" type="AudioStream" id=9]
+[ext_resource path="res://sound/outta_time.ogg" type="AudioStream" id=10]
+[ext_resource path="res://sound/mouse_over.wav" type="AudioStream" id=11]
+[ext_resource path="res://sound/select.wav" type="AudioStream" id=12]
+[ext_resource path="res://scenes/main_menu/DroidSans.tres" type="DynamicFont" id=13]
+[ext_resource path="res://sound/too_bad.mp3" type="AudioStream" id=14]
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 3.0
+content_margin_right = 3.0
+content_margin_top = 3.0
+content_margin_bottom = 3.0
+bg_color = Color( 1, 1, 1, 0 )
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color( 0.92549, 0.898039, 0.207843, 1 )
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id=2]
+content_margin_left = 3.0
+content_margin_right = 3.0
+content_margin_top = 3.0
+content_margin_bottom = 3.0
+bg_color = Color( 0.211765, 0.741176, 0.152941, 1 )
+draw_center = false
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color( 0.290196, 0.843137, 0.156863, 1 )
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0941176, 0.756863, 0.180392, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id=4]
+content_margin_left = 3.0
+content_margin_right = 3.0
+content_margin_top = 3.0
+content_margin_bottom = 3.0
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.85098, 0.792157, 0.172549, 1 )
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_size = 3
+
+[sub_resource type="DynamicFont" id=5]
+size = 200
+outline_size = 5
+outline_color = Color( 0.00784314, 0.00784314, 0.00784314, 1 )
+extra_spacing_top = 2
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color( 0.933333, 0.639216, 0.639216, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.0196078, 0, 0, 1 )
+shadow_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 200
+outline_color = Color( 0.00784314, 0.00784314, 0.00784314, 1 )
+extra_spacing_top = 5
+extra_spacing_char = 1
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=8]
+length = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 938, 470.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2.0 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "order_notification"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 4.0, 0.0, -4.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 938, 675 ), Vector2( 938, 672 ), Vector2( 938, 672 ), Vector2( 938, 672 ), Vector2( 938, 675 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "slide_phone_down"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 938, 472 ), Vector2( 938, 505 ), Vector2( 938, 560 ), Vector2( 938, 625 ), Vector2( 938, 675 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "slide_phone_up"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 938, 675 ), Vector2( 938, 625 ), Vector2( 938, 560 ), Vector2( 938, 505 ), Vector2( 938, 472 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/path = NodePath("towing/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("towing/label_towing:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("towing/label_towing:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ " Towing You Out of the Lava
+
+", " Towing You Out of the Lava.
+
+", " Towing You Out of the Lava..
+
+", " Towing You Out of the Lava...
+
+" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("towing/label_towing:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "fade"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "tow_fee"
+tracks/0/type = "value"
+tracks/0/path = NodePath("label_tow:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 903, 24 ), Vector2( 903, 84 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("show_tow:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 920, 24 ), Vector2( 920, 84 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("label_tow:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("show_tow:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("label_tow:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("show_tow:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "flash_accept"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/show_accept:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "flash_delivery_time"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/show_timer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "flash_money"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/label_money:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control/show_money:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "flash_fuel"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/label_fuel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "flash_unstuck"
+tracks/0/type = "value"
+tracks/0/path = NodePath("label_unstuck:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource( 4 )
+
+[node name="towing" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="towing"]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 0 )
+
+[node name="label_towing" type="RichTextLabel" parent="towing"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 341.0
+margin_top = 212.0
+margin_right = 724.0
+margin_bottom = 252.0
+custom_colors/default_color = Color( 1, 0.996078, 0.996078, 1 )
+custom_fonts/normal_font = ExtResource( 1 )
+text = " Towing You Out of the Lava...
+
+"
+scroll_active = false
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="show_status_available" type="RichTextLabel" parent="Control"]
+margin_left = 491.0
+margin_top = 3.0
+margin_right = 652.0
+margin_bottom = 43.0
+custom_colors/default_color = Color( 0.796078, 0.768627, 0.129412, 1 )
+custom_fonts/normal_font = ExtResource( 1 )
+custom_styles/normal = SubResource( 1 )
+text = "   Available"
+
+[node name="show_status_dispatched" type="RichTextLabel" parent="Control"]
+visible = false
+margin_left = 491.0
+margin_top = 3.0
+margin_right = 652.0
+margin_bottom = 43.0
+custom_colors/default_color = Color( 0.129412, 0.796078, 0.266667, 1 )
+custom_fonts/normal_font = ExtResource( 1 )
+custom_styles/normal = SubResource( 2 )
+text = " Dispatched"
+
+[node name="show_money" type="RichTextLabel" parent="Control"]
+margin_left = 928.0
+margin_right = 1022.0
+margin_bottom = 41.0
+custom_colors/default_color = Color( 0.988235, 0.988235, 0.988235, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = " 50
+"
+text = " 50
+"
+scroll_active = false
+
+[node name="show_pay" type="RichTextLabel" parent="Control"]
+visible = false
+margin_left = 928.0
+margin_top = 43.0
+margin_right = 1022.0
+margin_bottom = 84.0
+custom_colors/default_color = Color( 0.988235, 0.988235, 0.988235, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = " 0
+"
+text = " 0
+"
+scroll_active = false
+
+[node name="show_refuel" type="RichTextLabel" parent="Control"]
+margin_left = 191.0
+margin_top = 43.0
+margin_right = 285.0
+margin_bottom = 84.0
+custom_colors/default_color = Color( 0.988235, 0.988235, 0.988235, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = " 0"
+text = " 0"
+scroll_active = false
+
+[node name="label_money" type="RichTextLabel" parent="Control"]
+margin_left = 831.0
+margin_top = 1.0
+margin_right = 929.0
+margin_bottom = 42.0
+custom_colors/default_color = Color( 0.294118, 0.92549, 0.184314, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = " Cash  $"
+text = " Cash  $"
+scroll_active = false
+
+[node name="label_money3" type="RichTextLabel" parent="Control"]
+visible = false
+margin_left = 901.0
+margin_top = 43.0
+margin_right = 930.0
+margin_bottom = 84.0
+custom_colors/default_color = Color( 0.294118, 0.92549, 0.184314, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = " $"
+text = " $"
+scroll_active = false
+
+[node name="label_money2" type="RichTextLabel" parent="Control"]
+margin_left = 159.0
+margin_top = 43.0
+margin_right = 188.0
+margin_bottom = 84.0
+custom_colors/default_color = Color( 0.294118, 0.92549, 0.184314, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = " $"
+text = " $"
+scroll_active = false
+
+[node name="label_fuel" type="RichTextLabel" parent="Control"]
+margin_right = 78.0
+margin_bottom = 40.0
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_fonts/normal_font = ExtResource( 1 )
+text = " Fuel"
+
+[node name="show_fuel" type="ProgressBar" parent="Control"]
+margin_left = 78.0
+margin_top = 3.0
+margin_right = 346.0
+margin_bottom = 41.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 1 )
+custom_styles/fg = SubResource( 3 )
+custom_styles/bg = SubResource( 4 )
+step = 0.001
+value = 100.0
+
+[node name="label_timer" type="RichTextLabel" parent="Control"]
+visible = false
+margin_left = 462.0
+margin_top = 43.0
+margin_right = 602.0
+margin_bottom = 83.0
+custom_colors/default_color = Color( 1, 0.996078, 0.996078, 1 )
+custom_fonts/normal_font = ExtResource( 1 )
+text = " Time Left: "
+scroll_active = false
+
+[node name="show_timer" type="RichTextLabel" parent="Control"]
+visible = false
+margin_left = 597.0
+margin_top = 43.0
+margin_right = 694.0
+margin_bottom = 83.0
+custom_colors/default_color = Color( 1, 0.996078, 0.996078, 1 )
+custom_fonts/normal_font = ExtResource( 1 )
+text = "    00:00"
+scroll_active = false
+
+[node name="label_accept" type="RichTextLabel" parent="Control"]
+visible = false
+margin_left = 875.0
+margin_top = 510.0
+margin_right = 957.0
+margin_bottom = 550.0
+custom_colors/default_color = Color( 1, 0.996078, 0.996078, 1 )
+custom_fonts/normal_font = ExtResource( 1 )
+text = " Time: "
+scroll_active = false
+
+[node name="show_accept" type="RichTextLabel" parent="Control"]
+visible = false
+margin_left = 955.0
+margin_top = 510.0
+margin_right = 1017.0
+margin_bottom = 550.0
+custom_colors/default_color = Color( 1, 0.996078, 0.996078, 1 )
+custom_fonts/normal_font = ExtResource( 1 )
+text = " 00"
+scroll_active = false
+
+[node name="label_pay" type="RichTextLabel" parent="Control"]
+visible = false
+margin_left = 708.0
+margin_top = 43.0
+margin_right = 875.0
+margin_bottom = 83.0
+custom_colors/default_color = Color( 1, 0.996078, 0.996078, 1 )
+custom_fonts/normal_font = ExtResource( 1 )
+text = " Current Fee:"
+scroll_active = false
+
+[node name="label_refuel" type="RichTextLabel" parent="Control"]
+margin_top = 43.0
+margin_right = 250.0
+margin_bottom = 83.0
+custom_colors/default_color = Color( 1, 0.996078, 0.996078, 1 )
+custom_fonts/normal_font = ExtResource( 1 )
+text = " Refuel Cost
+"
+scroll_active = false
+
+[node name="Phone" type="Sprite" parent="Control"]
+position = Vector2( 938, 470.5 )
+rotation = 0.0349066
+scale = Vector2( 0.1, 0.0856667 )
+texture = ExtResource( 2 )
+
+[node name="cell_app_title" type="RichTextLabel" parent="Control/Phone"]
+margin_left = -640.0
+margin_top = -1220.0
+margin_right = 650.0
+margin_bottom = -893.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "  Uber-Heck"
+
+[node name="show_app" type="RichTextLabel" parent="Control/Phone"]
+margin_left = -640.0
+margin_top = -893.0
+margin_right = 640.0
+margin_bottom = 1080.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 7 )
+custom_styles/normal = SubResource( 6 )
+text = "Show delivery options here!"
+
+[node name="slide_phone" type="AnimationPlayer" parent="Control/Phone"]
+playback_speed = 2.0
+anims/RESET = SubResource( 8 )
+anims/order_notification = SubResource( 11 )
+anims/slide_phone_down = SubResource( 9 )
+anims/slide_phone_up = SubResource( 10 )
+
+[node name="debug" type="Label" parent="Control"]
+margin_left = 5.0
+margin_top = 95.0
+margin_right = 45.0
+margin_bottom = 109.0
+
+[node name="game_over" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="game_over"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 1004.0
+margin_bottom = 580.0
+color = Color( 0.164706, 0.0901961, 0.0901961, 1 )
+
+[node name="label_go" type="RichTextLabel" parent="game_over"]
+margin_left = 415.0
+margin_top = 68.0
+margin_right = 665.0
+margin_bottom = 108.0
+custom_colors/default_color = Color( 1, 0.996078, 0.996078, 1 )
+custom_fonts/normal_font = ExtResource( 1 )
+text = "  Game Over
+"
+scroll_active = false
+
+[node name="label_go2" type="RichTextLabel" parent="game_over"]
+margin_left = 423.0
+margin_top = 309.0
+margin_right = 673.0
+margin_bottom = 349.0
+custom_colors/default_color = Color( 1, 0.996078, 0.996078, 1 )
+custom_fonts/normal_font = ExtResource( 1 )
+text = "  Play Again?
+"
+scroll_active = false
+
+[node name="no_fuel" type="RichTextLabel" parent="game_over"]
+visible = false
+margin_left = 363.0
+margin_top = 133.0
+margin_right = 645.0
+margin_bottom = 173.0
+custom_colors/default_color = Color( 1, 0.996078, 0.996078, 1 )
+custom_fonts/normal_font = ExtResource( 1 )
+text = " Out of Fuel! You Lose!
+"
+scroll_active = false
+
+[node name="you_win" type="RichTextLabel" parent="game_over"]
+visible = false
+margin_left = 368.0
+margin_top = 117.0
+margin_right = 650.0
+margin_bottom = 283.0
+custom_colors/default_color = Color( 1, 0.996078, 0.996078, 1 )
+custom_fonts/normal_font = ExtResource( 1 )
+text = "   You made enough
+ cash to buy some ice
+ and relax for a while!
+
+            You Win!
+"
+scroll_active = false
+
+[node name="restart_game" type="Button" parent="game_over"]
+margin_left = 400.0
+margin_top = 367.0
+margin_right = 520.0
+margin_bottom = 408.0
+rect_scale = Vector2( 1.69388, 1.72973 )
+custom_fonts/font = ExtResource( 13 )
+text = "Restart"
+
+[node name="label_tow" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 903.0
+margin_top = 24.0
+margin_right = 930.0
+margin_bottom = 65.0
+custom_colors/default_color = Color( 0.294118, 0.92549, 0.184314, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = " $"
+text = " $"
+scroll_active = false
+
+[node name="show_tow" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 920.0
+margin_top = 24.0
+margin_right = 971.0
+margin_bottom = 65.0
+custom_colors/default_color = Color( 0.835294, 0.109804, 0.109804, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = " -20"
+text = " -20"
+scroll_active = false
+
+[node name="tow_fade" type="AnimationPlayer" parent="."]
+anims/fade = SubResource( 12 )
+
+[node name="fade" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
+
+[node name="fader" type="AnimationPlayer" parent="."]
+anims/fade = SubResource( 22 )
+anims/tow_fee = SubResource( 16 )
+
+[node name="flash_timer" type="AnimationPlayer" parent="."]
+anims/flash_accept = SubResource( 20 )
+anims/flash_delivery_time = SubResource( 21 )
+
+[node name="flash_money" type="AnimationPlayer" parent="."]
+anims/flash_money = SubResource( 23 )
+
+[node name="flash_fuel" type="AnimationPlayer" parent="."]
+anims/flash_fuel = SubResource( 24 )
+
+[node name="flash_unstuck" type="AnimationPlayer" parent="."]
+anims/flash_unstuck = SubResource( 25 )
+
+[node name="vibration" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -15.0
+
+[node name="decline" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -35.0
+
+[node name="accept" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -10.0
+
+[node name="success" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -15.0
+
+[node name="cash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -15.0
+
+[node name="low_time" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -5.0
+
+[node name="mouse_over" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -5.0
+
+[node name="too_bad" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = -10.0
+
+[node name="mouse_select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
+[node name="label_unstuck" type="RichTextLabel" parent="."]
+margin_left = 238.0
+margin_top = 138.0
+margin_right = 838.0
+margin_bottom = 188.0
+custom_colors/default_color = Color( 1, 0.996078, 0.996078, 1 )
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+scroll_active = false
+
+[connection signal="mouse_entered" from="game_over/restart_game" to="." method="_on_restart_game_mouse_entered"]
+[connection signal="pressed" from="game_over/restart_game" to="." method="_on_restart_game_pressed"]
+[connection signal="finished" from="mouse_select" to="." method="_on_mouse_select_finished"]

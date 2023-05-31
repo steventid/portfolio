@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/turn_squeal.ogg-e187721f7cc1e4871d86efaedf5f0b98.oggstr"
+
+[deps]
+
+source_file="res://sound/turn_squeal.ogg"
+dest_files=[ "res://.import/turn_squeal.ogg-e187721f7cc1e4871d86efaedf5f0b98.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

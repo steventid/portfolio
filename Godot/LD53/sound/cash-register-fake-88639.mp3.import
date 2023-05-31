@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/cash-register-fake-88639.mp3-650a5ac95b4c57488c08531b86e3f23d.mp3str"
+
+[deps]
+
+source_file="res://sound/cash-register-fake-88639.mp3"
+dest_files=[ "res://.import/cash-register-fake-88639.mp3-650a5ac95b4c57488c08531b86e3f23d.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

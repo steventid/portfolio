@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Punk_Sitcom_Intro_1.mp3-624318f96838106bd5bb93dadb1a22f8.mp3str"
+
+[deps]
+
+source_file="res://music/Punk_Sitcom_Intro_1.mp3"
+dest_files=[ "res://.import/Punk_Sitcom_Intro_1.mp3-624318f96838106bd5bb93dadb1a22f8.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

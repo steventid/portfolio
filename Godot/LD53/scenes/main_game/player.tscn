@@ -1,0 +1,199 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://cars/taxi.glb" type="PackedScene" id=1]
+[ext_resource path="res://scenes/main_game/player.gd" type="Script" id=2]
+[ext_resource path="res://scenes/main_game/cam_base.gd" type="Script" id=3]
+[ext_resource path="res://arrows/arrow4.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://scenes/main_game/part_system.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sound/rally-car-idle-loop-14-32339.mp3" type="AudioStream" id=6]
+[ext_resource path="res://sound/tire_squeal.ogg" type="AudioStream" id=7]
+[ext_resource path="res://sound/explosion-6055.mp3" type="AudioStream" id=8]
+[ext_resource path="res://sound/turn_squeal.ogg" type="AudioStream" id=9]
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 0.652001, 0.554605, 1.3233 )
+
+[sub_resource type="SpatialMaterial" id=4]
+flags_transparent = true
+albedo_color = Color( 0.0745098, 0.298039, 0.0588235, 1 )
+
+[sub_resource type="SpatialMaterial" id=5]
+flags_transparent = true
+albedo_color = Color( 1, 0.176471, 0.176471, 1 )
+
+[sub_resource type="CylinderMesh" id=6]
+material = SubResource( 5 )
+top_radius = 0.5
+bottom_radius = 0.5
+height = 0.05
+radial_segments = 8
+rings = 1
+
+[node name="player" type="VehicleBody"]
+mass = 80.0
+gravity_scale = 1.5
+continuous_cd = true
+contacts_reported = 1
+contact_monitor = true
+script = ExtResource( 2 )
+brake_power = 20.0
+steer_power = 5.0
+
+[node name="collision" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.764438, -0.0112652 )
+shape = SubResource( 7 )
+
+[node name="cam_base" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0 )
+script = ExtResource( 3 )
+
+[node name="camera" type="Camera" parent="cam_base"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 2.98023e-08, 8.74228e-08, 2.98023e-08, -1, 0, 0, -10 )
+current = true
+size = 0.1
+far = 1000.0
+
+[node name="taxi" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="arrow" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.00712538, 2.24699, -0.177932 )
+mesh = ExtResource( 4 )
+material/0 = SubResource( 4 )
+
+[node name="stop" type="MeshInstance" parent="."]
+transform = Transform( 0.923879, 3.32733e-09, 0.382683, 0.382683, -1.67276e-08, -0.923879, 3.32733e-09, 1, -1.67276e-08, 0, 2.22692, -0.175214 )
+visible = false
+mesh = SubResource( 6 )
+
+[node name="front_left_wheel" type="VehicleWheel" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50733, 0.301227, 0.756663 )
+use_as_steering = true
+wheel_radius = 0.3
+wheel_friction_slip = 5.0
+suspension_stiffness = 50.0
+damping_compression = 1.4
+damping_relaxation = 1.5
+
+[node name="front_right_wheel" type="VehicleWheel" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.502722, 0.301227, 0.756663 )
+use_as_steering = true
+wheel_radius = 0.3
+wheel_friction_slip = 5.0
+suspension_stiffness = 50.0
+damping_compression = 1.4
+damping_relaxation = 1.5
+
+[node name="rear_left_wheel" type="VehicleWheel" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50733, 0.301227, -0.757464 )
+use_as_traction = true
+wheel_radius = 0.3
+wheel_friction_slip = 5.0
+suspension_stiffness = 50.0
+damping_compression = 1.4
+damping_relaxation = 1.5
+
+[node name="rear_right_wheel" type="VehicleWheel" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.502722, 0.301227, -0.757464 )
+use_as_traction = true
+wheel_radius = 0.3
+wheel_friction_slip = 5.0
+suspension_stiffness = 50.0
+damping_compression = 1.4
+damping_relaxation = 1.5
+
+[node name="brake_lights" type="Spatial" parent="."]
+visible = false
+
+[node name="brake_light" type="OmniLight" parent="brake_lights"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.489344, 0.651164, -1.35359 )
+light_color = Color( 1, 0.156863, 0.156863, 1 )
+light_energy = 100.0
+light_specular = 3.0
+omni_range = 0.16
+
+[node name="brake_light2" type="OmniLight" parent="brake_lights"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.34218, 0.651164, -1.35359 )
+light_color = Color( 1, 0.156863, 0.156863, 1 )
+light_energy = 100.0
+light_specular = 3.0
+omni_range = 0.16
+
+[node name="brake_light3" type="OmniLight" parent="brake_lights"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.339527, 0.651164, -1.35359 )
+light_color = Color( 1, 0.156863, 0.156863, 1 )
+light_energy = 100.0
+light_specular = 3.0
+omni_range = 0.16
+
+[node name="brake_light4" type="OmniLight" parent="brake_lights"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.472448, 0.651164, -1.35359 )
+light_color = Color( 1, 0.156863, 0.156863, 1 )
+light_energy = 100.0
+light_specular = 3.0
+omni_range = 0.16
+
+[node name="reverse_lights" type="Spatial" parent="."]
+visible = false
+
+[node name="rev_light" type="OmniLight" parent="reverse_lights"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.34218, 0.651164, -1.35359 )
+light_energy = 100.0
+light_specular = 3.0
+omni_range = 0.16
+
+[node name="rev_light1" type="OmniLight" parent="reverse_lights"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.339527, 0.651164, -1.35359 )
+light_energy = 100.0
+light_specular = 3.0
+omni_range = 0.16
+
+[node name="headlights" type="Spatial" parent="."]
+
+[node name="headlight_ball" type="OmniLight" parent="headlights"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.413094, 0.651164, 1.34455 )
+light_energy = 100.0
+light_specular = 3.0
+omni_range = 0.16
+
+[node name="headlight_ball1" type="OmniLight" parent="headlights"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.410088, 0.651164, 1.34455 )
+light_energy = 100.0
+light_specular = 3.0
+omni_range = 0.16
+
+[node name="spotlight" type="SpotLight" parent="headlights"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.413708, 0.3837, 1.24221 )
+light_energy = 10.0
+spot_range = 15.0
+spot_angle = 20.0
+
+[node name="spotlight1" type="SpotLight" parent="headlights"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.41251, 0.3837, 1.24221 )
+light_energy = 10.0
+spot_range = 15.0
+spot_angle = 20.0
+
+[node name="ground_ray" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( 0, -0.1, 0 )
+
+[node name="part_system" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0 )
+
+[node name="engine_noise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -35.0
+autoplay = true
+
+[node name="brake_noise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -35.0
+
+[node name="turn_noise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -35.0
+
+[node name="explosion_noise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -15.0

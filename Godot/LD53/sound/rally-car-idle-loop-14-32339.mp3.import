@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/rally-car-idle-loop-14-32339.mp3-dea068178081129379215fbdbe963b8a.mp3str"
+
+[deps]
+
+source_file="res://sound/rally-car-idle-loop-14-32339.mp3"
+dest_files=[ "res://.import/rally-car-idle-loop-14-32339.mp3-dea068178081129379215fbdbe963b8a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

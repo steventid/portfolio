@@ -1,0 +1,136 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://scenes/main_menu/DroidSans.tres" type="DynamicFont" id=1]
+[ext_resource path="res://textures/MAP.png" type="Texture" id=2]
+[ext_resource path="res://scenes/main_menu/DroidSans-Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://textures/lava_1_diffuseOriginal.png" type="Texture" id=4]
+[ext_resource path="res://textures/Phone_3.png" type="Texture" id=5]
+[ext_resource path="res://scenes/main_menu/tutorial.gd" type="Script" id=6]
+[ext_resource path="res://sound/mouse_over.wav" type="AudioStream" id=7]
+[ext_resource path="res://sound/select.wav" type="AudioStream" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 14
+outline_size = 3
+outline_color = Color( 0.00784314, 0.00784314, 0.00784314, 1 )
+extra_spacing_top = 2
+extra_spacing_char = 1
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.909804, 0.494118, 0.494118, 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "fade"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource( 6 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="background" type="TextureRect" parent="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.499169, 0.292217 )
+texture = ExtResource( 4 )
+
+[node name="map" type="TextureRect" parent="Control"]
+margin_left = 347.0
+margin_top = 16.0
+margin_right = 1330.0
+margin_bottom = 646.0
+rect_scale = Vector2( 0.677006, 0.911241 )
+texture = ExtResource( 2 )
+
+[node name="mapdetail" type="RichTextLabel" parent="Control"]
+margin_left = 347.0
+margin_top = 551.0
+margin_right = 1012.0
+margin_bottom = 591.0
+custom_colors/default_color = Color( 0.866667, 0.109804, 0.109804, 1 )
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Each island is surrounded by lava, which will disable your taxi. 
+The safe bridge is on the bottom of the map. The dangerous bridge is at the top.[/center]"
+text = "Each island is surrounded by lava, which will disable your taxi. 
+The safe bridge is on the bottom of the map. The dangerous bridge is at the top."
+
+[node name="Phone3" type="Sprite" parent="."]
+position = Vector2( 168, 295.296 )
+scale = Vector2( 0.21697, 0.196469 )
+texture = ExtResource( 5 )
+
+[node name="explaingame" type="RichTextLabel" parent="."]
+margin_left = 26.0
+margin_top = 53.0
+margin_right = 309.0
+margin_bottom = 510.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 1 )
+custom_styles/normal = SubResource( 2 )
+text = " Get delivery requests
+ on  your phone, pick up
+ orders on shop island,  
+ and deliver them to 
+ destination island to
+ earn fees and tips. Get
+ $500 to buy an
+ icemaker to win!
+"
+scroll_active = false
+
+[node name="controls" type="Button" parent="."]
+margin_left = 39.0
+margin_top = 365.0
+margin_right = 217.0
+margin_bottom = 402.0
+rect_scale = Vector2( 1.39759, 1.5 )
+custom_fonts/font = ExtResource( 1 )
+text = "Next: Controls"
+
+[node name="startmenu" type="Button" parent="."]
+margin_left = 40.0
+margin_top = 430.0
+margin_right = 218.0
+margin_bottom = 467.0
+rect_scale = Vector2( 1.39759, 1.5 )
+custom_fonts/font = ExtResource( 1 )
+text = "Back to Start"
+
+[node name="fade" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
+
+[node name="fader" type="AnimationPlayer" parent="."]
+anims/fade = SubResource( 3 )
+
+[node name="mouse_over" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -5.0
+
+[node name="mouse_select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[connection signal="mouse_entered" from="controls" to="." method="_on_controls_mouse_entered"]
+[connection signal="pressed" from="controls" to="." method="_on_controls_pressed"]
+[connection signal="mouse_entered" from="startmenu" to="." method="_on_startmenu_mouse_entered"]
+[connection signal="pressed" from="startmenu" to="." method="_on_startmenu_pressed"]
+[connection signal="animation_finished" from="fader" to="." method="_on_fader_animation_finished"]

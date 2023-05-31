@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Academic_Exodus.mp3-75586ba2c66bc1abf97d688d4897c038.mp3str"
+
+[deps]
+
+source_file="res://music/Academic_Exodus.mp3"
+dest_files=[ "res://.import/Academic_Exodus.mp3-75586ba2c66bc1abf97d688d4897c038.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

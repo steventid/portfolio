@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Separate_the_Ones.mp3-ceef22a79097bfea1e3f3f3bd3589f44.mp3str"
+
+[deps]
+
+source_file="res://music/Separate_the_Ones.mp3"
+dest_files=[ "res://.import/Separate_the_Ones.mp3-ceef22a79097bfea1e3f3f3bd3589f44.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

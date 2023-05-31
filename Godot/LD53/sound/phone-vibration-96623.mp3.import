@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/phone-vibration-96623.mp3-3050357f885715a8f319c3b7e83178d5.mp3str"
+
+[deps]
+
+source_file="res://sound/phone-vibration-96623.mp3"
+dest_files=[ "res://.import/phone-vibration-96623.mp3-3050357f885715a8f319c3b7e83178d5.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

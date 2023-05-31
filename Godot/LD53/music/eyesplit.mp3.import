@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/eyesplit.mp3-90de2e5a550bfad7c982a7e6e74cb877.mp3str"
+
+[deps]
+
+source_file="res://music/eyesplit.mp3"
+dest_files=[ "res://.import/eyesplit.mp3-90de2e5a550bfad7c982a7e6e74cb877.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

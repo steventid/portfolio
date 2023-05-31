@@ -1,0 +1,466 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://rocks/rockFlat.glb" type="PackedScene" id=1]
+[ext_resource path="res://scenes/rubix_buildings/large_buildingG_rubix.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/rubix_buildings/large_buildingF_rubix.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/rubix_buildings/small_buildingC_rubix.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/rubix_buildings/large_buildingB_rubix.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/rubix_buildings/small_buildingB_rubix.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/rubix_buildings/small_buildingD_rubix.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/rubix_buildings/small_buildingF_rubix.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/rubix_buildings/small_buildingE_rubix.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/rubix_buildings/large_buildingA_rubix.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/rubix_buildings/large_buildingE_rubix.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/rubix_buildings/large_buildingC_rubix.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/rubix_buildings/large_buildingD_rubix.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/rubix_buildings/small_buildingA_rubix.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/rubix_roads/road_straight_rubix.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/rubix_roads/road_crossroad_rubix.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/rubix_roads/road_curve_rubix.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/rubix_roads/road_split_rubix.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scenes/rubix_roads/road_curveIntersection_rubix.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scenes/rubix_roads/road_bend_rubix.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/rubix_roads/road_roundabout_rubix.tscn" type="PackedScene" id=21]
+[ext_resource path="res://scenes/rubix_roads/road_endRound_rubix.tscn" type="PackedScene" id=22]
+[ext_resource path="res://scenes/rubix_rocks/rockC_rubix.tscn" type="PackedScene" id=23]
+
+[sub_resource type="ConcavePolygonShape" id=1]
+data = PoolVector3Array( 0.5502, 0, -0.5156, 0.5677, 0.0825, -0.4854, 0.557, 0.0825, -0.4668, 0.7192, 0, -0.3609, 0.6784, 0.0825, -0.3506, 0.7091, 0.0825, -0.4037, 0.7091, 0.0825, -0.4037, 0.7439, 0, -0.4037, 0.7192, 0, -0.3609, -0.6441, 0.0825, 0.4737, -0.7271, 0, 0.4737, -0.6414, 0, 0.3252, -0.6414, 0, 0.3252, -0.5583, 0.0825, 0.3251, -0.6441, 0.0825, 0.4737, 0.4045, 0, 0.4146, 0.3696, 0.0825, 0.4146, 0.3443, 0.0825, 0.3707, 0.3443, 0.0825, 0.3707, 0.3899, 0, 0.3893, 0.4045, 0, 0.4146, -0.7648, 0.0825, -0.1279, -0.8347, 0.0825, -0.2489, -0.7648, 0.0825, -0.3111, -0.7648, 0.0825, -0.3111, -0.8347, 0.0825, -0.2489, -0.7598, 0.0825, -0.3785, -0.7598, 0.0825, -0.3785, -0.6481, 0.0825, -0.3785, -0.7648, 0.0825, -0.3111, 0.7011, 0.0825, 0.3477, 0.7426, 0, 0.4196, 0.4351, 0, 0.4196, 0.4351, 0, 0.4196, 0.4767, 0.0825, 0.3477, 0.7011, 0.0825, 0.3477, 0.2282, 0.0825, 0.4962, 0.2108, 0, 0.5264, 0.1462, 0, 0.4146, 0.1462, 0, 0.4146, 0.1811, 0.0825, 0.4146, 0.2282, 0.0825, 0.4962, -0.5734, 0, 0.74, -0.7271, 0, 0.4737, -0.6441, 0.0825, 0.4737, -0.6441, 0.0825, 0.4737, -0.5319, 0.0825, 0.6681, -0.5734, 0, 0.74, 0.7426, 0, 0.4196, 0.7011, 0.0825, 0.3477, 0.8134, 0.0825, 0.1533, 0.8134, 0.0825, 0.1533, 0.8964, 0, 0.1533, 0.7426, 0, 0.4196, 0.7439, 0, -0.4037, 0.7091, 0.0825, -0.4037, 0.6619, 0.0825, -0.4854, 0.6619, 0.0825, -0.4854, 0.6794, 0, -0.5156, 0.7439, 0, -0.4037, 0.0193, 0, 0.3182, -0.1466, 0, 0.414, -0.2297, 0.0825, 0.4139, -0.2297, 0.0825, 0.4139, 0.0147, 0.165, 0.2248, 0.0193, 0, 0.3182, -0.2297, 0.0825, 0.4139, -0.3171, 0.0825, 0.4644, 0.0147, 0.165, 0.2248, -0.3171, 0.0825, 0.4644, -0.3171, 0.165, 0.4163, 0.0147, 0.165, 0.2248, -0.1466, 0, 0.414, 0.0193, 0, 0.3182, -0.2297, 0.0825, 0.4139, 0.0147, 0.165, 0.2248, -0.2297, 0.0825, 0.4139, 0.0193, 0, 0.3182, -0.3171, 0.0825, 0.4644, -0.2297, 0.0825, 0.4139, 0.0147, 0.165, 0.2248, -0.3171, 0.165, 0.4163, -0.3171, 0.0825, 0.4644, 0.0147, 0.165, 0.2248, 0.4095, 0, 0.3752, 0.3899, 0, 0.3893, 0.3443, 0.0825, 0.3707, 0.3443, 0.0825, 0.3707, 0.4473, 0.0825, 0.297, 0.4095, 0, 0.3752, 0.2976, 0.165, 0.3531, 0.4473, 0.0825, 0.297, 0.3443, 0.0825, 0.3707, 0.3443, 0.0825, 0.3707, 0.3022, 0.0825, 0.4009, 0.2976, 0.165, 0.3531, 0.2976, 0.165, 0.3531, 0.6789, 0.165, 0.0801, 0.4473, 0.0825, 0.297, 0.6789, 0.165, 0.0801, 0.7226, 0.0825, 0.0999, 0.4473, 0.0825, 0.297, 0.3899, 0, 0.3893, 0.4095, 0, 0.3752, 0.3443, 0.0825, 0.3707, 0.4473, 0.0825, 0.297, 0.3443, 0.0825, 0.3707, 0.4095, 0, 0.3752, 0.4473, 0.0825, 0.297, 0.2976, 0.165, 0.3531, 0.3443, 0.0825, 0.3707, 0.3022, 0.0825, 0.4009, 0.3443, 0.0825, 0.3707, 0.2976, 0.165, 0.3531, 0.6789, 0.165, 0.0801, 0.2976, 0.165, 0.3531, 0.4473, 0.0825, 0.297, 0.7226, 0.0825, 0.0999, 0.6789, 0.165, 0.0801, 0.4473, 0.0825, 0.297, 0.5677, 0.0825, -0.4854, 0.5502, 0, -0.5156, 0.6794, 0, -0.5156, 0.6794, 0, -0.5156, 0.6619, 0.0825, -0.4854, 0.5677, 0.0825, -0.4854, -0.3171, 0.165, -0.5216, -0.3171, 0.0825, -0.5696, -0.1899, 0.0825, -0.4961, -0.073, 0.165, -0.3806, -0.3171, 0.165, -0.5216, -0.1899, 0.0825, -0.4961, -0.0778, 0, -0.4794, -0.073, 0.165, -0.3806, -0.1899, 0.0825, -0.4961, -0.1899, 0.0825, -0.4961, -0.1276, 0, -0.5082, -0.0778, 0, -0.4794, -0.3171, 0.0825, -0.5696, -0.3171, 0.165, -0.5216, -0.1899, 0.0825, -0.4961, -0.3171, 0.165, -0.5216, -0.073, 0.165, -0.3806, -0.1899, 0.0825, -0.4961, -0.073, 0.165, -0.3806, -0.0778, 0, -0.4794, -0.1899, 0.0825, -0.4961, -0.1276, 0, -0.5082, -0.1899, 0.0825, -0.4961, -0.0778, 0, -0.4794, -0.5319, 0.0825, 0.6681, -0.6441, 0.0825, 0.4737, -0.5583, 0.0825, 0.3251, -0.5583, 0.0825, 0.3251, -0.3171, 0.0825, 0.4644, -0.5319, 0.0825, 0.6681, -0.3171, 0.0825, 0.4644, -0.3074, 0.0825, 0.6681, -0.5319, 0.0825, 0.6681, -0.3171, 0.0825, 0.4644, -0.2297, 0.0825, 0.4139, -0.3074, 0.0825, 0.6681, -0.2297, 0.0825, 0.4139, -0.1951, 0.0825, 0.4737, -0.3074, 0.0825, 0.6681, -0.7648, 0.0825, -0.1279, -0.8064, 0, -0.1041, -0.89, 0, -0.2489, -0.89, 0, -0.2489, -0.8347, 0.0825, -0.2489, -0.7648, 0.0825, -0.1279, 0.3225, 0.0825, 0.4962, 0.3399, 0, 0.5264, 0.2108, 0, 0.5264, 0.2108, 0, 0.5264, 0.2282, 0.0825, 0.4962, 0.3225, 0.0825, 0.4962, 0.206, 0.165, -0.5804, 0.1967, 0, -0.6759, 0.5502, 0, -0.5156, 0.5502, 0, -0.5156, 0.557, 0.0825, -0.4668, 0.206, 0.165, -0.5804, 0.6331, 0.165, -0.3866, 0.206, 0.165, -0.5804, 0.557, 0.0825, -0.4668, 0.557, 0.0825, -0.4668, 0.6722, 0.0825, -0.4146, 0.6331, 0.165, -0.3866, 0.1967, 0, -0.6759, 0.206, 0.165, -0.5804, 0.5502, 0, -0.5156, 0.557, 0.0825, -0.4668, 0.5502, 0, -0.5156, 0.206, 0.165, -0.5804, 0.206, 0.165, -0.5804, 0.6331, 0.165, -0.3866, 0.557, 0.0825, -0.4668, 0.6722, 0.0825, -0.4146, 0.557, 0.0825, -0.4668, 0.6331, 0.165, -0.3866, 0.6722, 0.0825, -0.4146, 0.557, 0.0825, -0.4668, 0.5677, 0.0825, -0.4854, 0.5677, 0.0825, -0.4854, 0.6619, 0.0825, -0.4854, 0.6722, 0.0825, -0.4146, 0.6619, 0.0825, -0.4854, 0.7091, 0.0825, -0.4037, 0.6722, 0.0825, -0.4146, 0.7091, 0.0825, -0.4037, 0.6784, 0.0825, -0.3506, 0.6722, 0.0825, -0.4146, 0.2282, 0.0825, 0.4962, 0.1811, 0.0825, 0.4146, 0.2125, 0.0825, 0.3602, 0.2125, 0.0825, 0.3602, 0.3022, 0.0825, 0.4009, 0.2282, 0.0825, 0.4962, 0.3022, 0.0825, 0.4009, 0.3225, 0.0825, 0.4962, 0.2282, 0.0825, 0.4962, 0.3022, 0.0825, 0.4009, 0.3443, 0.0825, 0.3707, 0.3225, 0.0825, 0.4962, 0.3443, 0.0825, 0.3707, 0.3696, 0.0825, 0.4146, 0.3225, 0.0825, 0.4962, 0.4351, 0, 0.4196, 0.4095, 0, 0.3752, 0.4473, 0.0825, 0.297, 0.4473, 0.0825, 0.297, 0.4767, 0.0825, 0.3477, 0.4351, 0, 0.4196, 0.7192, 0, -0.3609, 0.7437, 0, -0.1111, 0.6784, 0.0825, -0.3506, 0.6331, 0.165, -0.3866, 0.6784, 0.0825, -0.3506, 0.7437, 0, -0.1111, 0.6331, 0.165, -0.3866, 0.6722, 0.0825, -0.4146, 0.6784, 0.0825, -0.3506, 0.6331, 0.165, -0.3866, 0.7437, 0, -0.1111, 0.7103, 0.0825, -0.0251, 0.6789, 0.165, 0.0801, 0.6331, 0.165, -0.3866, 0.7103, 0.0825, -0.0251, 0.7103, 0.0825, -0.0251, 0.7226, 0.0825, 0.0999, 0.6789, 0.165, 0.0801, 0.7437, 0, -0.1111, 0.7192, 0, -0.3609, 0.6784, 0.0825, -0.3506, 0.6784, 0.0825, -0.3506, 0.6331, 0.165, -0.3866, 0.7437, 0, -0.1111, 0.6722, 0.0825, -0.4146, 0.6331, 0.165, -0.3866, 0.6784, 0.0825, -0.3506, 0.7437, 0, -0.1111, 0.6331, 0.165, -0.3866, 0.7103, 0.0825, -0.0251, 0.6331, 0.165, -0.3866, 0.6789, 0.165, 0.0801, 0.7103, 0.0825, -0.0251, 0.7226, 0.0825, 0.0999, 0.7103, 0.0825, -0.0251, 0.6789, 0.165, 0.0801, 0.4767, 0.0825, 0.3477, 0.4473, 0.0825, 0.297, 0.7226, 0.0825, 0.0999, 0.7226, 0.0825, 0.0999, 0.7011, 0.0825, 0.3477, 0.4767, 0.0825, 0.3477, 0.7226, 0.0825, 0.0999, 0.8134, 0.0825, 0.1533, 0.7011, 0.0825, 0.3477, 0.8134, 0.0825, 0.1533, 0.7226, 0.0825, 0.0999, 0.7103, 0.0825, -0.0251, -0.8347, 0.0825, -0.2489, -0.89, 0, -0.2489, -0.7875, 0, -0.4264, -0.7875, 0, -0.4264, -0.7598, 0.0825, -0.3785, -0.8347, 0.0825, -0.2489, -0.3171, 0.165, 0.4163, -0.3171, 0.0825, 0.4644, -0.5583, 0.0825, 0.3251, -0.7232, 0.165, 0.1819, -0.3171, 0.165, 0.4163, -0.5583, 0.0825, 0.3251, -0.8064, 0, 0.2299, -0.7232, 0.165, 0.1819, -0.5583, 0.0825, 0.3251, -0.5583, 0.0825, 0.3251, -0.6414, 0, 0.3252, -0.8064, 0, 0.2299, -0.3171, 0.0825, 0.4644, -0.3171, 0.165, 0.4163, -0.5583, 0.0825, 0.3251, -0.3171, 0.165, 0.4163, -0.7232, 0.165, 0.1819, -0.5583, 0.0825, 0.3251, -0.7232, 0.165, 0.1819, -0.8064, 0, 0.2299, -0.5583, 0.0825, 0.3251, -0.6414, 0, 0.3252, -0.5583, 0.0825, 0.3251, -0.8064, 0, 0.2299, -0.7232, 0.165, 0.1819, -0.8064, 0, 0.2299, -0.8064, 0, -0.1041, -0.8064, 0, -0.1041, -0.7648, 0.0825, -0.1279, -0.7232, 0.165, 0.1819, -0.7648, 0.0825, -0.1279, -0.7232, 0.165, -0.2871, -0.7232, 0.165, 0.1819, -0.7648, 0.0825, -0.1279, -0.7648, 0.0825, -0.3111, -0.7232, 0.165, -0.2871, -0.8064, 0, 0.2299, -0.7232, 0.165, 0.1819, -0.8064, 0, -0.1041, -0.7648, 0.0825, -0.1279, -0.8064, 0, -0.1041, -0.7232, 0.165, 0.1819, -0.7232, 0.165, -0.2871, -0.7648, 0.0825, -0.1279, -0.7232, 0.165, 0.1819, -0.7648, 0.0825, -0.3111, -0.7648, 0.0825, -0.1279, -0.7232, 0.165, -0.2871, 0.4045, 0, 0.4146, 0.3399, 0, 0.5264, 0.3225, 0.0825, 0.4962, 0.3225, 0.0825, 0.4962, 0.3696, 0.0825, 0.4146, 0.4045, 0, 0.4146, -0.2659, 0, 0.74, -0.3074, 0.0825, 0.6681, -0.1951, 0.0825, 0.4737, -0.1951, 0.0825, 0.4737, -0.1121, 0, 0.4737, -0.2659, 0, 0.74, -0.7598, 0.0825, -0.3785, -0.7875, 0, -0.4264, -0.6483, 0, -0.4264, -0.6483, 0, -0.4264, -0.6481, 0.0825, -0.3785, -0.7598, 0.0825, -0.3785, 0.2976, 0.165, 0.3531, 0.3022, 0.0825, 0.4009, 0.2125, 0.0825, 0.3602, 0.0147, 0.165, 0.2248, 0.2976, 0.165, 0.3531, 0.2125, 0.0825, 0.3602, 0.0193, 0, 0.3182, 0.0147, 0.165, 0.2248, 0.2125, 0.0825, 0.3602, 0.2125, 0.0825, 0.3602, 0.164, 0, 0.3838, 0.0193, 0, 0.3182, 0.3022, 0.0825, 0.4009, 0.2976, 0.165, 0.3531, 0.2125, 0.0825, 0.3602, 0.2976, 0.165, 0.3531, 0.0147, 0.165, 0.2248, 0.2125, 0.0825, 0.3602, 0.0147, 0.165, 0.2248, 0.0193, 0, 0.3182, 0.2125, 0.0825, 0.3602, 0.164, 0, 0.3838, 0.2125, 0.0825, 0.3602, 0.0193, 0, 0.3182, -0.4484, 0.0825, -0.4938, -0.4695, 0.0825, -0.5303, -0.3947, 0.0825, -0.6599, -0.3947, 0.0825, -0.6599, -0.3171, 0.0825, -0.5696, -0.4484, 0.0825, -0.4938, -0.3947, 0.0825, -0.6599, -0.245, 0.0825, -0.6599, -0.3171, 0.0825, -0.5696, -0.245, 0.0825, -0.6599, -0.1899, 0.0825, -0.4961, -0.3171, 0.0825, -0.5696, -0.245, 0.0825, -0.6599, -0.1702, 0.0825, -0.5303, -0.1899, 0.0825, -0.4961, -0.1951, 0.0825, 0.4737, -0.2297, 0.0825, 0.4139, -0.1466, 0, 0.414, -0.1466, 0, 0.414, -0.1121, 0, 0.4737, -0.1951, 0.0825, 0.4737, -0.4223, 0, -0.7078, -0.5248, 0, -0.5303, -0.5107, 0, -0.5058, -0.2659, 0, 0.74, -0.4223, 0, -0.7078, -0.5107, 0, -0.5058, -0.2659, 0, 0.74, -0.2173, 0, -0.7078, -0.4223, 0, -0.7078, -0.5734, 0, 0.74, -0.2659, 0, 0.74, -0.5107, 0, -0.5058, -0.6414, 0, 0.3252, -0.5734, 0, 0.74, -0.5107, 0, -0.5058, -0.5734, 0, 0.74, -0.6414, 0, 0.3252, -0.7271, 0, 0.4737, -0.6414, 0, 0.3252, -0.5107, 0, -0.5058, -0.6483, 0, -0.4264, -0.6414, 0, 0.3252, -0.6483, 0, -0.4264, -0.7875, 0, -0.4264, -0.8064, 0, 0.2299, -0.6414, 0, 0.3252, -0.7875, 0, -0.4264, -0.8064, 0, -0.1041, -0.8064, 0, 0.2299, -0.7875, 0, -0.4264, -0.7875, 0, -0.4264, -0.89, 0, -0.2489, -0.8064, 0, -0.1041, -0.2659, 0, 0.74, -0.1466, 0, 0.414, -0.2173, 0, -0.7078, -0.2659, 0, 0.74, -0.1121, 0, 0.4737, -0.1466, 0, 0.414, -0.2173, 0, -0.7078, -0.1466, 0, 0.414, -0.1276, 0, -0.5082, -0.1276, 0, -0.5082, -0.1148, 0, -0.5303, -0.2173, 0, -0.7078, -0.1276, 0, -0.5082, -0.1466, 0, 0.414, 0.0193, 0, 0.3182, 0.0193, 0, 0.3182, -0.0778, 0, -0.4794, -0.1276, 0, -0.5082, 0.0193, 0, 0.3182, 0.1967, 0, -0.6759, -0.0778, 0, -0.4794, 0.0193, 0, 0.3182, 0.164, 0, 0.3838, 0.1967, 0, -0.6759, 0.2108, 0, 0.5264, 0.1967, 0, -0.6759, 0.164, 0, 0.3838, 0.164, 0, 0.3838, 0.1462, 0, 0.4146, 0.2108, 0, 0.5264, 0.2108, 0, 0.5264, 0.5502, 0, -0.5156, 0.1967, 0, -0.6759, 0.2108, 0, 0.5264, 0.3399, 0, 0.5264, 0.5502, 0, -0.5156, 0.3399, 0, 0.5264, 0.3899, 0, 0.3893, 0.5502, 0, -0.5156, 0.4045, 0, 0.4146, 0.3899, 0, 0.3893, 0.3399, 0, 0.5264, 0.3899, 0, 0.3893, 0.4095, 0, 0.3752, 0.5502, 0, -0.5156, 0.4095, 0, 0.3752, 0.4351, 0, 0.4196, 0.5502, 0, -0.5156, 0.4351, 0, 0.4196, 0.7426, 0, 0.4196, 0.5502, 0, -0.5156, 0.7426, 0, 0.4196, 0.6794, 0, -0.5156, 0.5502, 0, -0.5156, 0.7426, 0, 0.4196, 0.7192, 0, -0.3609, 0.6794, 0, -0.5156, 0.7439, 0, -0.4037, 0.6794, 0, -0.5156, 0.7192, 0, -0.3609, 0.7426, 0, 0.4196, 0.7437, 0, -0.1111, 0.7192, 0, -0.3609, 0.7426, 0, 0.4196, 0.8964, 0, 0.1533, 0.7437, 0, -0.1111, -0.7232, 0.165, -0.2871, -0.7648, 0.0825, -0.3111, -0.6481, 0.0825, -0.3785, -0.6481, 0.0825, -0.3785, -0.4484, 0.0825, -0.4938, -0.7232, 0.165, -0.2871, -0.3171, 0.165, -0.5216, -0.7232, 0.165, -0.2871, -0.4484, 0.0825, -0.4938, -0.4484, 0.0825, -0.4938, -0.3171, 0.0825, -0.5696, -0.3171, 0.165, -0.5216, -0.5107, 0, -0.5058, -0.4484, 0.0825, -0.4938, -0.6481, 0.0825, -0.3785, -0.6481, 0.0825, -0.3785, -0.6483, 0, -0.4264, -0.5107, 0, -0.5058, -0.7648, 0.0825, -0.3111, -0.7232, 0.165, -0.2871, -0.6481, 0.0825, -0.3785, -0.4484, 0.0825, -0.4938, -0.6481, 0.0825, -0.3785, -0.7232, 0.165, -0.2871, -0.7232, 0.165, -0.2871, -0.3171, 0.165, -0.5216, -0.4484, 0.0825, -0.4938, -0.3171, 0.0825, -0.5696, -0.4484, 0.0825, -0.4938, -0.3171, 0.165, -0.5216, -0.4484, 0.0825, -0.4938, -0.5107, 0, -0.5058, -0.6481, 0.0825, -0.3785, -0.6483, 0, -0.4264, -0.6481, 0.0825, -0.3785, -0.5107, 0, -0.5058, -0.7232, 0.165, 0.1819, -0.7232, 0.165, -0.2871, -0.3171, 0.165, -0.5216, -0.3171, 0.165, -0.5216, -0.3171, 0.165, 0.4163, -0.7232, 0.165, 0.1819, -0.3171, 0.165, -0.5216, -0.073, 0.165, -0.3806, -0.3171, 0.165, 0.4163, -0.073, 0.165, -0.3806, 0.0147, 0.165, 0.2248, -0.3171, 0.165, 0.4163, -0.073, 0.165, -0.3806, 0.206, 0.165, -0.5804, 0.0147, 0.165, 0.2248, 0.206, 0.165, -0.5804, 0.2976, 0.165, 0.3531, 0.0147, 0.165, 0.2248, 0.206, 0.165, -0.5804, 0.6331, 0.165, -0.3866, 0.2976, 0.165, 0.3531, 0.6331, 0.165, -0.3866, 0.6789, 0.165, 0.0801, 0.2976, 0.165, 0.3531, -0.7232, 0.165, -0.2871, -0.7232, 0.165, 0.1819, -0.3171, 0.165, -0.5216, -0.3171, 0.165, 0.4163, -0.3171, 0.165, -0.5216, -0.7232, 0.165, 0.1819, -0.073, 0.165, -0.3806, -0.3171, 0.165, -0.5216, -0.3171, 0.165, 0.4163, 0.0147, 0.165, 0.2248, -0.073, 0.165, -0.3806, -0.3171, 0.165, 0.4163, 0.206, 0.165, -0.5804, -0.073, 0.165, -0.3806, 0.0147, 0.165, 0.2248, 0.2976, 0.165, 0.3531, 0.206, 0.165, -0.5804, 0.0147, 0.165, 0.2248, 0.6331, 0.165, -0.3866, 0.206, 0.165, -0.5804, 0.2976, 0.165, 0.3531, 0.6789, 0.165, 0.0801, 0.6331, 0.165, -0.3866, 0.2976, 0.165, 0.3531, 0.8134, 0.0825, 0.1533, 0.7103, 0.0825, -0.0251, 0.7437, 0, -0.1111, 0.7437, 0, -0.1111, 0.8964, 0, 0.1533, 0.8134, 0.0825, 0.1533, -0.4695, 0.0825, -0.5303, -0.5248, 0, -0.5303, -0.4223, 0, -0.7078, -0.4223, 0, -0.7078, -0.3947, 0.0825, -0.6599, -0.4695, 0.0825, -0.5303, -0.3074, 0.0825, 0.6681, -0.2659, 0, 0.74, -0.5734, 0, 0.74, -0.5734, 0, 0.74, -0.5319, 0.0825, 0.6681, -0.3074, 0.0825, 0.6681, -0.1148, 0, -0.5303, -0.1702, 0.0825, -0.5303, -0.245, 0.0825, -0.6599, -0.245, 0.0825, -0.6599, -0.2173, 0, -0.7078, -0.1148, 0, -0.5303, 0.1811, 0.0825, 0.4146, 0.1462, 0, 0.4146, 0.164, 0, 0.3838, 0.164, 0, 0.3838, 0.2125, 0.0825, 0.3602, 0.1811, 0.0825, 0.4146, -0.3947, 0.0825, -0.6599, -0.4223, 0, -0.7078, -0.2173, 0, -0.7078, -0.2173, 0, -0.7078, -0.245, 0.0825, -0.6599, -0.3947, 0.0825, -0.6599, -0.1276, 0, -0.5082, -0.1899, 0.0825, -0.4961, -0.1702, 0.0825, -0.5303, -0.1702, 0.0825, -0.5303, -0.1148, 0, -0.5303, -0.1276, 0, -0.5082, -0.4695, 0.0825, -0.5303, -0.4484, 0.0825, -0.4938, -0.5107, 0, -0.5058, -0.5107, 0, -0.5058, -0.5248, 0, -0.5303, -0.4695, 0.0825, -0.5303, -0.073, 0.165, -0.3806, -0.0778, 0, -0.4794, 0.1967, 0, -0.6759, 0.1967, 0, -0.6759, 0.206, 0.165, -0.5804, -0.073, 0.165, -0.3806, -0.0778, 0, -0.4794, -0.073, 0.165, -0.3806, 0.1967, 0, -0.6759, 0.206, 0.165, -0.5804, 0.1967, 0, -0.6759, -0.073, 0.165, -0.3806 )
+
+[node name="dest_island" instance=ExtResource( 1 )]
+transform = Transform( -6.55671e-06, 0, 150, 0, 21.665, 0, -150, 0, -6.55671e-06, 0, 0, 0 )
+
+[node name="rockFlat" parent="." index="0"]
+transform = Transform( 3.4641, 0, -2, 0, 1, 0, 2, 0, 3.4641, 0, -0.314, 0 )
+
+[node name="StaticBody" type="StaticBody" parent="rockFlat" index="0"]
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="rockFlat/StaticBody" index="0"]
+shape = SubResource( 1 )
+
+[node name="roads_main" type="Spatial" parent="." index="1"]
+transform = Transform( 1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, -0.0797945, 0, 6.04701 )
+visible = false
+
+[node name="road_crossroad" parent="roads_main" index="0" instance=ExtResource( 16 )]
+transform = Transform( 0.251, 0, 0, 0, 0.5, 0, 0, 0, 0.251, -1.328, -0.153, 0.624 )
+
+[node name="road_curveIntersection" parent="roads_main" index="1" instance=ExtResource( 19 )]
+transform = Transform( 0.251, 0, 0, 0, 0.5, 0, 0, 0, 0.251, -0.955474, -0.153, 0.498202 )
+
+[node name="road_curve" parent="roads_main" index="2" instance=ExtResource( 17 )]
+transform = Transform( 0.251, 0, 0, 0, 0.5, 0, 0, 0, 0.251, -1.95408, -0.153, 0.498124 )
+
+[node name="road_endRound" parent="roads_main" index="3" instance=ExtResource( 22 )]
+transform = Transform( 0.251, 0, 0, 0, 0.5, 0, 0, 0, 0.251, -0.583065, -0.153, 0.623791 )
+
+[node name="road_roundabout" parent="roads_main" index="4" instance=ExtResource( 21 )]
+transform = Transform( 0.251, 0, 0, 0, 0.5, 0, 0, 0, 0.251, -1.08047, -0.153, -0.127933 )
+
+[node name="road_straight" parent="roads_main" index="5" instance=ExtResource( 15 )]
+transform = Transform( 0.251, 0, 0, 0, 0.5, 0, 0, 0, 0.251, -1.57786, -0.153, 0.623863 )
+
+[node name="road_split" parent="roads_main" index="6" instance=ExtResource( 18 )]
+transform = Transform( 0.251, 0, 0, 0, 0.5, 0, 0, 0, 0.251, -0.582451, -0.153, -0.127764 )
+
+[node name="road_bend" parent="roads_main" index="7" instance=ExtResource( 20 )]
+transform = Transform( 0.251, 0, 0, 0, 0.5, 0, 0, 0, 0.251, 0, -0.153, 0 )
+
+[node name="buildings_main" type="Spatial" parent="." index="2"]
+transform = Transform( 1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0.232508, 0, 7.13715 )
+visible = false
+
+[node name="large_buildingA" parent="buildings_main" index="0" instance=ExtResource( 10 )]
+transform = Transform( 0.5, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 0.5, -0.66174, -0.165114, 0.661741 )
+
+[node name="large_buildingB" parent="buildings_main" index="1" instance=ExtResource( 5 )]
+transform = Transform( 0.5, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 0.5, 0, -0.165114, 0 )
+
+[node name="large_buildingC" parent="buildings_main" index="2" instance=ExtResource( 12 )]
+transform = Transform( 0.5, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 0.5, -0.800938, -0.165114, 0 )
+
+[node name="large_buildingD" parent="buildings_main" index="3" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 0.5, -1.39881, -0.165114, 0 )
+
+[node name="large_buildingE" parent="buildings_main" index="4" instance=ExtResource( 11 )]
+transform = Transform( 0.5, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 0.5, -1.26837, -0.165114, 0.821187 )
+
+[node name="large_buildingF" parent="buildings_main" index="5" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 0.5, -0.513559, -0.165114, -0.762435 )
+
+[node name="large_buildingG" parent="buildings_main" index="6" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 0.5, -1.04531, -0.165114, -1.35495 )
+
+[node name="small_buildingA" parent="buildings_main" index="7" instance=ExtResource( 14 )]
+transform = Transform( 0.5, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 0.5, 0.388012, -0.15, 0.532664 )
+
+[node name="small_buildingB" parent="buildings_main" index="8" instance=ExtResource( 6 )]
+transform = Transform( 0.5, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 0.5, 0.79073, -0.15, 0.452627 )
+
+[node name="small_buildingC" parent="buildings_main" index="9" instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 0.5, -0.035006, -0.150001, 0.639754 )
+
+[node name="small_buildingD" parent="buildings_main" index="10" instance=ExtResource( 7 )]
+transform = Transform( 0.5, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 0.5, 0.234336, -0.15, 0.929637 )
+
+[node name="small_buildingE" parent="buildings_main" index="11" instance=ExtResource( 9 )]
+transform = Transform( 0.5, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 0.5, 1.03427, -0.15, -0.689095 )
+
+[node name="small_buildingF" parent="buildings_main" index="12" instance=ExtResource( 8 )]
+transform = Transform( 0.5, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 0.5, 0.491894, -0.15, -0.345881 )
+
+[node name="dest_roads" type="Spatial" parent="." index="3"]
+
+[node name="road_split2" parent="dest_roads" index="0" instance=ExtResource( 18 )]
+transform = Transform( 0.251, 0, -6.21725e-15, 0, 0.5, 0, 6.21725e-15, 0, 0.251, 2.16248, -0.153, -0.150721 )
+
+[node name="road_straight7" parent="dest_roads" index="1" instance=ExtResource( 15 )]
+transform = Transform( 0.251, 0, -8.88178e-16, 0, 0.5, 0, 8.88178e-16, 0, 0.251, -1.76247, -0.153, -0.15082 )
+
+[node name="road_straight8" parent="dest_roads" index="2" instance=ExtResource( 15 )]
+transform = Transform( 0.251, 0, -8.88178e-16, 0, 0.5, 0, 8.88178e-16, 0, 0.251, -1.51852, -0.153, -0.15082 )
+
+[node name="road_straight9" parent="dest_roads" index="3" instance=ExtResource( 15 )]
+transform = Transform( 0.251, 0, -8.88178e-16, 0, 0.5, 0, 8.88178e-16, 0, 0.251, -1.27153, -0.153, -0.15082 )
+
+[node name="road_straight10" parent="dest_roads" index="4" instance=ExtResource( 15 )]
+transform = Transform( 0.251, 0, -8.88178e-16, 0, 0.5, 0, 8.88178e-16, 0, 0.251, -1.02758, -0.153, -0.15082 )
+
+[node name="road_straight11" parent="dest_roads" index="5" instance=ExtResource( 15 )]
+transform = Transform( 0.251, 0, -8.88178e-16, 0, 0.5, 0, 8.88178e-16, 0, 0.251, -0.780393, -0.153, -0.15082 )
+
+[node name="road_straight12" parent="dest_roads" index="6" instance=ExtResource( 15 )]
+transform = Transform( 0.251, 0, -8.88178e-16, 0, 0.5, 0, 8.88178e-16, 0, 0.251, -0.536445, -0.153, -0.15082 )
+
+[node name="road_straight13" parent="dest_roads" index="7" instance=ExtResource( 15 )]
+transform = Transform( 0.251, 0, -2.66454e-15, 0, 0.5, 0, 2.66454e-15, 0, 0.251, -0.286398, -0.153, -0.15082 )
+
+[node name="road_straight14" parent="dest_roads" index="8" instance=ExtResource( 15 )]
+transform = Transform( 0.251, 0, -8.88178e-16, 0, 0.5, 0, 8.88178e-16, 0, 0.251, 0.201617, -0.153, -0.15082 )
+
+[node name="road_straight15" parent="dest_roads" index="9" instance=ExtResource( 15 )]
+transform = Transform( 0.251, 0, -8.88178e-16, 0, 0.5, 0, 8.88178e-16, 0, 0.251, 0.445565, -0.153, -0.15082 )
+
+[node name="road_straight16" parent="dest_roads" index="10" instance=ExtResource( 15 )]
+transform = Transform( 0.251, 0, -8.88178e-16, 0, 0.5, 0, 8.88178e-16, 0, 0.251, 0.692562, -0.153, -0.15082 )
+
+[node name="road_straight17" parent="dest_roads" index="11" instance=ExtResource( 15 )]
+transform = Transform( 0.251, 0, -8.88178e-16, 0, 0.5, 0, 8.88178e-16, 0, 0.251, 0.93651, -0.153, -0.15082 )
+
+[node name="road_straight28" parent="dest_roads" index="12" instance=ExtResource( 15 )]
+transform = Transform( 0.251, 0, -2.66454e-15, 0, 0.5, 0, 2.66454e-15, 0, 0.251, 1.17985, -0.153, -0.15082 )
+
+[node name="road_straight29" parent="dest_roads" index="13" instance=ExtResource( 15 )]
+transform = Transform( 0.251, 0, -2.66454e-15, 0, 0.5, 0, 2.66454e-15, 0, 0.251, 1.42379, -0.153, -0.15082 )
+
+[node name="road_straight30" parent="dest_roads" index="14" instance=ExtResource( 15 )]
+transform = Transform( 0.251, 0, -2.66454e-15, 0, 0.5, 0, 2.66454e-15, 0, 0.251, 1.67079, -0.153, -0.15082 )
+
+[node name="road_straight31" parent="dest_roads" index="15" instance=ExtResource( 15 )]
+transform = Transform( 0.251, 0, -2.66454e-15, 0, 0.5, 0, 2.66454e-15, 0, 0.251, 1.91474, -0.153, -0.15082 )
+
+[node name="road_straight38" parent="dest_roads" index="16" instance=ExtResource( 15 )]
+transform = Transform( 0.251, 0, -1.68754e-14, 0, 0.5, 0, 1.68754e-14, 0, 0.251, 1.6721, -0.153, -1.02745 )
+
+[node name="road_straight39" parent="dest_roads" index="17" instance=ExtResource( 15 )]
+transform = Transform( 0.251, 0, -1.68754e-14, 0, 0.5, 0, 1.68754e-14, 0, 0.251, 1.9191, -0.153, -1.02745 )
+
+[node name="road_straight40" parent="dest_roads" index="18" instance=ExtResource( 15 )]
+transform = Transform( 0.251, 0, -1.68754e-14, 0, 0.5, 0, 1.68754e-14, 0, 0.251, 2.16305, -0.153, -1.02745 )
+
+[node name="road_endRound2" parent="dest_roads" index="19" instance=ExtResource( 22 )]
+transform = Transform( -0.251, 0, -2.19431e-08, 0, 0.5, 0, 2.19431e-08, 0, -0.251, -2.51389, -0.153, -0.521329 )
+
+[node name="road_endRound3" parent="dest_roads" index="20" instance=ExtResource( 22 )]
+transform = Transform( 0.251, 0, 4.38862e-08, 0, 0.5, 0, -4.38862e-08, 0, 0.251, -1.26236, -0.153, -2.34682 )
+
+[node name="road_endRound4" parent="dest_roads" index="21" instance=ExtResource( 22 )]
+transform = Transform( 0.251, 0, 4.38862e-08, 0, 0.5, 0, -4.38862e-08, 0, 0.251, 0.465289, -0.153, 2.06041 )
+
+[node name="road_endRound5" parent="dest_roads" index="22" instance=ExtResource( 22 )]
+transform = Transform( -0.251, 0, -6.58293e-08, 0, 0.5, 0, 6.58293e-08, 0, -0.251, 2.16441, -0.153, 1.59798 )
+
+[node name="road_endRound6" parent="dest_roads" index="23" instance=ExtResource( 22 )]
+transform = Transform( -0.251, 0, -6.58293e-08, 0, 0.5, 0, 6.58293e-08, 0, -0.251, 1.42359, -0.153, -0.650514 )
+
+[node name="road_endRound7" parent="dest_roads" index="24" instance=ExtResource( 22 )]
+transform = Transform( -5.48578e-08, 0, 0.251, 0, 0.5, 0, -0.251, 0, -5.48578e-08, -0.225154, -0.153, -1.19577 )
+
+[node name="road_curve2" parent="dest_roads" index="25" instance=ExtResource( 17 )]
+transform = Transform( 0.251, 0, -8.88178e-16, 0, 0.5, 0, 8.88178e-16, 0, 0.251, -2.13647, -0.153, -0.275752 )
+
+[node name="road_curve3" parent="dest_roads" index="26" instance=ExtResource( 17 )]
+transform = Transform( -1.09716e-08, 0, 0.251, 0, 0.5, 0, -0.251, 0, -1.09716e-08, -2.07538, -0.153, -0.835263 )
+
+[node name="road_curve4" parent="dest_roads" index="27" instance=ExtResource( 17 )]
+transform = Transform( 3.29146e-08, 0, -0.251, 0, 0.5, 0, 0.251, 0, 3.29146e-08, -1.44915, -0.153, -2.03356 )
+
+[node name="road_curve5" parent="dest_roads" index="28" instance=ExtResource( 17 )]
+transform = Transform( 0.251, 0, 4.38862e-08, 0, 0.5, 0, -4.38862e-08, 0, 0.251, 0.0888477, -0.153, 1.93487 )
+
+[node name="road_curve6" parent="dest_roads" index="29" instance=ExtResource( 17 )]
+transform = Transform( -0.251, 0, -6.58293e-08, 0, 0.5, 0, 6.58293e-08, 0, -0.251, 2.53786, -0.153, 0.476798 )
+
+[node name="road_curve8" parent="dest_roads" index="30" instance=ExtResource( 17 )]
+transform = Transform( -5.48577e-08, 0, 0.251, 0, 0.5, 0, -0.251, 0, -5.48577e-08, 2.35082, -0.153, 1.28416 )
+
+[node name="road_curve7" parent="dest_roads" index="31" instance=ExtResource( 17 )]
+transform = Transform( -5.48577e-08, 0, 0.251, 0, 0.5, 0, -0.251, 0, -5.48577e-08, 2.35007, -0.153, -0.212722 )
+
+[node name="road_curve9" parent="dest_roads" index="32" instance=ExtResource( 17 )]
+transform = Transform( -0.251, 0, -6.58293e-08, 0, 0.5, 0, 6.58293e-08, 0, -0.251, 2.53836, -0.153, -0.52561 )
+
+[node name="road_crossroad3" parent="dest_roads" index="33" instance=ExtResource( 16 )]
+transform = Transform( 0.251, 0, -8.88178e-16, 0, 0.5, 0, 8.88178e-16, 0, 0.251, -0.0366797, -0.153, -0.150137 )
+
+[node name="road_crossroad2" parent="dest_roads" index="34" instance=ExtResource( 16 )]
+transform = Transform( 0.251, 0, -2.66454e-15, 0, 0.5, 0, 2.66454e-15, 0, 0.251, -2.26282, -0.153, -0.898224 )
+
+[node name="road_straight2" parent="dest_roads" index="35" instance=ExtResource( 15 )]
+transform = Transform( -1.09716e-08, 0, -0.251, 0, 0.5, 0, 0.251, 0, -1.09716e-08, -2.07447, -0.153, -1.45855 )
+
+[node name="road_straight21" parent="dest_roads" index="36" instance=ExtResource( 15 )]
+transform = Transform( -1.09716e-08, 0, -0.251, 0, 0.5, 0, 0.251, 0, -1.09716e-08, 0.151043, -0.153, 0.28668 )
+
+[node name="road_straight22" parent="dest_roads" index="37" instance=ExtResource( 15 )]
+transform = Transform( -1.09716e-08, 0, -0.251, 0, 0.5, 0, 0.251, 0, -1.09716e-08, 0.151043, -0.153, 0.533522 )
+
+[node name="road_straight34" parent="dest_roads" index="38" instance=ExtResource( 15 )]
+transform = Transform( -1.09716e-08, 0, -0.251, 0, 0.5, 0, 0.251, 0, -1.09716e-08, 0.151043, -0.153, -0.456232 )
+
+[node name="road_straight35" parent="dest_roads" index="39" instance=ExtResource( 15 )]
+transform = Transform( -1.09716e-08, 0, -0.251, 0, 0.5, 0, 0.251, 0, -1.09716e-08, 0.151043, -0.153, -0.20939 )
+
+[node name="road_straight36" parent="dest_roads" index="40" instance=ExtResource( 15 )]
+transform = Transform( -1.09716e-08, 0, -0.251, 0, 0.5, 0, 0.251, 0, -1.09716e-08, 0.151043, -0.153, -0.947135 )
+
+[node name="road_straight37" parent="dest_roads" index="41" instance=ExtResource( 15 )]
+transform = Transform( -1.09716e-08, 0, -0.251, 0, 0.5, 0, 0.251, 0, -1.09716e-08, 0.151043, -0.153, -0.700293 )
+
+[node name="road_straight32" parent="dest_roads" index="42" instance=ExtResource( 15 )]
+transform = Transform( -1.09716e-08, 0, -0.251, 0, 0.5, 0, 0.251, 0, -1.09716e-08, 2.85236, -0.153, 0.661403 )
+
+[node name="road_straight33" parent="dest_roads" index="43" instance=ExtResource( 15 )]
+transform = Transform( -1.09716e-08, 0, -0.251, 0, 0.5, 0, 0.251, 0, -1.09716e-08, 2.85236, -0.153, 0.908245 )
+
+[node name="road_straight23" parent="dest_roads" index="44" instance=ExtResource( 15 )]
+transform = Transform( -1.09716e-08, 0, -0.251, 0, 0.5, 0, 0.251, 0, -1.09716e-08, 0.151043, -0.153, 0.776215 )
+
+[node name="road_straight24" parent="dest_roads" index="45" instance=ExtResource( 15 )]
+transform = Transform( -1.09716e-08, 0, -0.251, 0, 0.5, 0, 0.251, 0, -1.09716e-08, 0.151043, -0.153, 1.01913 )
+
+[node name="road_straight25" parent="dest_roads" index="46" instance=ExtResource( 15 )]
+transform = Transform( -1.09716e-08, 0, -0.251, 0, 0.5, 0, 0.251, 0, -1.09716e-08, 0.151043, -0.153, 1.26588 )
+
+[node name="road_straight26" parent="dest_roads" index="47" instance=ExtResource( 15 )]
+transform = Transform( -1.09716e-08, 0, -0.251, 0, 0.5, 0, 0.251, 0, -1.09716e-08, 0.151043, -0.153, 1.50776 )
+
+[node name="road_straight27" parent="dest_roads" index="48" instance=ExtResource( 15 )]
+transform = Transform( -1.09716e-08, 0, -0.251, 0, 0.5, 0, 0.251, 0, -1.09716e-08, 0.151043, -0.153, 1.74964 )
+
+[node name="road_straight18" parent="dest_roads" index="49" instance=ExtResource( 15 )]
+transform = Transform( -1.09716e-08, 0, -0.251, 0, 0.5, 0, 0.251, 0, -1.09716e-08, -1.57352, -0.153, -1.20845 )
+
+[node name="road_straight19" parent="dest_roads" index="50" instance=ExtResource( 15 )]
+transform = Transform( -1.09716e-08, 0, -0.251, 0, 0.5, 0, 0.251, 0, -1.09716e-08, -1.57352, -0.153, -1.44636 )
+
+[node name="road_straight20" parent="dest_roads" index="51" instance=ExtResource( 15 )]
+transform = Transform( -1.09716e-08, 0, -0.251, 0, 0.5, 0, 0.251, 0, -1.09716e-08, -1.57352, -0.153, -1.67788 )
+
+[node name="road_straight3" parent="dest_roads" index="52" instance=ExtResource( 15 )]
+transform = Transform( -1.09716e-08, 0, -0.251, 0, 0.5, 0, 0.251, 0, -1.09716e-08, -2.07447, -0.153, -1.24687 )
+
+[node name="road_straight4" parent="dest_roads" index="53" instance=ExtResource( 15 )]
+transform = Transform( -1.09716e-08, 0, -0.251, 0, 0.5, 0, 0.251, 0, -1.09716e-08, -2.07447, -0.153, -0.937486 )
+
+[node name="road_straight6" parent="dest_roads" index="54" instance=ExtResource( 15 )]
+transform = Transform( -1.09716e-08, 0, -0.251, 0, 0.5, 0, 0.251, 0, -1.09716e-08, -2.07447, -0.153, -1.02589 )
+
+[node name="road_straight5" parent="dest_roads" index="55" instance=ExtResource( 15 )]
+transform = Transform( -1.09716e-08, 0, -0.251, 0, 0.5, 0, 0.251, 0, -1.09716e-08, -2.07447, -0.153, -0.461875 )
+
+[node name="obstacles" type="Spatial" parent="." index="4"]
+
+[node name="large_buildingA2" parent="obstacles" index="0" instance=ExtResource( 10 )]
+transform = Transform( 0.0948077, 0, -0.320929, 0, 1, 0, 0.320929, 0, 0.0948077, -0.933234, -0.165114, -2.18226 )
+
+[node name="large_buildingA3" parent="obstacles" index="1" instance=ExtResource( 10 )]
+transform = Transform( -0.100858, 0, -0.146672, 0, 1, 0, 0.146672, 0, -0.100858, 1.22618, -0.165114, -0.993634 )
+
+[node name="small_buildingF" parent="obstacles" index="2" instance=ExtResource( 8 )]
+transform = Transform( 0.463208, 0, 0.18825, 0, 1, 0, -0.18825, 0, 0.463208, -2.60117, -0.15, -1.00039 )
+
+[node name="large_buildingE" parent="obstacles" index="3" instance=ExtResource( 11 )]
+transform = Transform( -0.267039, 0, -0.231039, 0, 1, 0, 0.231039, 0, -0.267039, -1.92287, -0.165114, -0.392815 )
+
+[node name="large_buildingE2" parent="obstacles" index="4" instance=ExtResource( 11 )]
+transform = Transform( 0.120737, 0, -0.331831, 0, 1, 0, 0.331831, 0, 0.120737, 0.307061, -0.165114, 0.358709 )
+
+[node name="large_buildingE4" parent="obstacles" index="5" instance=ExtResource( 11 )]
+transform = Transform( 0.179868, 0, 0.244092, 0, 1, 0, -0.244092, 0, 0.179868, 1.85154, -0.165114, 1.19938 )
+
+[node name="large_buildingE3" parent="obstacles" index="6" instance=ExtResource( 11 )]
+transform = Transform( -0.148262, 0, 0.098166, 0, 1, 0, -0.098166, 0, -0.148262, 2.05515, -0.165114, 0.284771 )
+
+[node name="small_buildingF2" parent="obstacles" index="7" instance=ExtResource( 8 )]
+transform = Transform( 0.337894, 0, -1.77636e-15, 0, 1, 0, 1.77636e-15, 0, 0.337894, -1.60695, -0.15, -0.197593 )
+
+[node name="small_buildingC" parent="obstacles" index="8" instance=ExtResource( 4 )]
+transform = Transform( 0.176185, 0, -0.190642, 0, 1, 0, 0.190642, 0, 0.176185, -2.01978, -0.150001, -0.962891 )
+
+[node name="small_buildingC5" parent="obstacles" index="9" instance=ExtResource( 4 )]
+transform = Transform( -0.226227, 0, 0.127306, 0, 1, 0, -0.127306, 0, -0.226227, -2.23564, -0.150001, 0.132133 )
+
+[node name="small_buildingC2" parent="obstacles" index="10" instance=ExtResource( 4 )]
+transform = Transform( 0.0657058, 0, 0.251134, 0, 1, 0, -0.251134, 0, 0.0657058, -2.01978, -0.150001, -1.18532 )
+
+[node name="small_buildingC3" parent="obstacles" index="11" instance=ExtResource( 4 )]
+transform = Transform( 0.195854, 0, -0.170373, 0, 1, 0, 0.170373, 0, 0.195854, -2.01978, -0.150001, -1.41916 )
+
+[node name="small_buildingC4" parent="obstacles" index="12" instance=ExtResource( 4 )]
+transform = Transform( -0.112066, 0, 0.234151, 0, 1, 0, -0.234151, 0, -0.112066, -2.01978, -0.150001, -1.64159 )
+
+[node name="small_buildingB" parent="obstacles" index="13" instance=ExtResource( 6 )]
+transform = Transform( -0.175083, 0, -0.12912, 0, 1, 0, 0.12912, 0, -0.175083, -1.19404, -0.15, -1.90286 )
+
+[node name="small_buildingB2" parent="obstacles" index="14" instance=ExtResource( 6 )]
+transform = Transform( -0.194643, 0, -0.0971601, 0, 1, 0, 0.0971601, 0, -0.194643, -1.38796, -0.15, -1.90857 )
+
+[node name="small_buildingB3" parent="obstacles" index="15" instance=ExtResource( 6 )]
+transform = Transform( -0.0199776, 0, -0.216626, 0, 1, 0, 0.216626, 0, -0.0199776, -1.51528, -0.15, -1.74049 )
+
+[node name="small_buildingB4" parent="obstacles" index="16" instance=ExtResource( 6 )]
+transform = Transform( 0.0421207, 0, -0.213429, 0, 1, 0, 0.213429, 0, 0.0421207, -1.52484, -0.15, -1.53785 )
+
+[node name="small_buildingB14" parent="obstacles" index="17" instance=ExtResource( 6 )]
+transform = Transform( -0.0199776, 0, -0.216626, 0, 1, 0, 0.216626, 0, -0.0199776, 0.184886, -0.15, 0.686564 )
+
+[node name="small_buildingB15" parent="obstacles" index="18" instance=ExtResource( 6 )]
+transform = Transform( -0.0839031, 0, 0.200715, 0, 1, 0, -0.200715, 0, -0.0839031, 0.175332, -0.15, 0.889205 )
+
+[node name="small_buildingB16" parent="obstacles" index="19" instance=ExtResource( 6 )]
+transform = Transform( 0.0748864, 0, -0.20425, 0, 1, 0, 0.20425, 0, 0.0748864, 0.189414, -0.15, 1.07596 )
+
+[node name="small_buildingB18" parent="obstacles" index="20" instance=ExtResource( 6 )]
+transform = Transform( 0.18006, 0, -0.122084, 0, 1, 0, 0.122084, 0, 0.18006, 1.45838, -0.15, 0.238191 )
+
+[node name="small_buildingB19" parent="obstacles" index="21" instance=ExtResource( 6 )]
+transform = Transform( 0.205853, 0, 0.070359, 0, 1, 0, -0.070359, 0, 0.205853, 1.63702, -0.15, 0.238191 )
+
+[node name="small_buildingB17" parent="obstacles" index="22" instance=ExtResource( 6 )]
+transform = Transform( -0.0448402, 0, -0.212874, 0, 1, 0, 0.212874, 0, -0.0448402, 0.197971, -0.15, 1.26048 )
+
+[node name="small_buildingB8" parent="obstacles" index="23" instance=ExtResource( 6 )]
+transform = Transform( -0.266038, 0, 0.00387735, 0, 1, 0, -0.00387735, 0, -0.266038, -0.927091, -0.15, -0.162542 )
+
+[node name="small_buildingB11" parent="obstacles" index="24" instance=ExtResource( 6 )]
+transform = Transform( -0.233229, 0, 0.128044, 0, 1, 0, -0.128044, 0, -0.233229, -0.495889, -0.15, -0.156381 )
+
+[node name="small_buildingB9" parent="obstacles" index="25" instance=ExtResource( 6 )]
+transform = Transform( 0.209503, 0, 0.0586047, 0, 1, 0, -0.0586047, 0, 0.209503, -0.718493, -0.15, -0.152822 )
+
+[node name="small_buildingB12" parent="obstacles" index="26" instance=ExtResource( 6 )]
+transform = Transform( -0.0618771, 0, 0.258771, 0, 1, 0, -0.258771, 0, -0.0618771, 0.207152, -0.15, 1.43532 )
+
+[node name="small_buildingB13" parent="obstacles" index="27" instance=ExtResource( 6 )]
+transform = Transform( 0.10848, 0, -0.188569, 0, 1, 0, 0.188569, 0, 0.10848, 0.249196, -0.15, 1.63987 )
+
+[node name="small_buildingB10" parent="obstacles" index="28" instance=ExtResource( 6 )]
+transform = Transform( 0.184366, 0, 0.115478, 0, 1, 0, -0.115478, 0, 0.184366, -0.260892, -0.15, -0.148417 )
+
+[node name="small_buildingB7" parent="obstacles" index="29" instance=ExtResource( 6 )]
+transform = Transform( -0.217371, 0, -0.00871151, 0, 1, 0, 0.00871151, 0, -0.217371, -1.40581, -0.15, 0.279582 )
+
+[node name="small_buildingB5" parent="obstacles" index="30" instance=ExtResource( 6 )]
+transform = Transform( -0.0887958, 0, -0.198599, 0, 1, 0, 0.198599, 0, -0.0887958, -1.51913, -0.15, -1.33253 )
+
+[node name="small_buildingB6" parent="obstacles" index="31" instance=ExtResource( 6 )]
+transform = Transform( -0.0942448, 0, -0.196071, 0, 1, 0, 0.196071, 0, -0.0942448, -1.58187, -0.15, -0.870553 )
+
+[node name="large_buildingB" parent="obstacles" index="32" instance=ExtResource( 5 )]
+transform = Transform( 0.0539936, 0, -0.259085, 0, 1, 0, 0.259085, 0, 0.0539936, -1.72242, -0.165114, -0.695811 )
+
+[node name="large_buildingB2" parent="obstacles" index="33" instance=ExtResource( 5 )]
+transform = Transform( -0.148359, 0, -0.219158, 0, 1, 0, 0.219158, 0, -0.148359, -1.53421, -0.165114, -1.03801 )
+
+[node name="large_buildingB5" parent="obstacles" index="34" instance=ExtResource( 5 )]
+transform = Transform( -0.148359, 0, -0.219158, 0, 1, 0, 0.219158, 0, -0.148359, -1.21731, -0.165114, 0.326493 )
+
+[node name="large_buildingB3" parent="obstacles" index="35" instance=ExtResource( 5 )]
+transform = Transform( 0.0323904, 0, -0.262662, 0, 1, 0, 0.262662, 0, 0.0323904, -1.5285, -0.165114, -1.1806 )
+
+[node name="large_buildingB4" parent="obstacles" index="36" instance=ExtResource( 5 )]
+transform = Transform( -0.264221, 0, 0.0150822, 0, 1, 0, -0.0150822, 0, -0.264221, -2.0191, -0.165114, 0.212713 )
+
+[node name="large_buildingF" parent="obstacles" index="37" instance=ExtResource( 3 )]
+transform = Transform( -0.136181, 0, 0.251641, 0, 1, 0, -0.251641, 0, -0.136181, -2.45531, -0.165114, -0.232161 )
+
+[node name="large_buildingF2" parent="obstacles" index="38" instance=ExtResource( 3 )]
+transform = Transform( 0.282221, 0, 0.0471111, 0, 1, 0, -0.0471111, 0, 0.282221, -0.846785, -0.165114, 0.295958 )
+
+[node name="large_buildingF5" parent="obstacles" index="39" instance=ExtResource( 3 )]
+transform = Transform( -0.0455095, 0, 0.282484, 0, 1, 0, -0.282484, 0, -0.0455095, -0.28081, -0.165114, -0.546214 )
+
+[node name="large_buildingF4" parent="obstacles" index="40" instance=ExtResource( 3 )]
+transform = Transform( -0.0457806, 0, 0.28244, 0, 1, 0, -0.28244, 0, -0.0457806, -0.234162, -0.165114, 0.824081 )
+
+[node name="large_buildingF3" parent="obstacles" index="41" instance=ExtResource( 3 )]
+transform = Transform( 0.256278, 0, -0.12724, 0, 1, 0, 0.12724, 0, 0.256278, 0.4106, -0.165114, 1.91978 )
+
+[node name="large_buildingF6" parent="obstacles" index="42" instance=ExtResource( 3 )]
+transform = Transform( -0.254405, 0, 0.130943, 0, 1, 0, -0.130943, 0, -0.254405, 1.27917, -0.165114, 0.342814 )
+
+[node name="large_buildingD" parent="obstacles" index="43" instance=ExtResource( 13 )]
+transform = Transform( 0.32395, 0, 0.132063, 0, 1, 0, -0.132063, 0, 0.32395, -1.65518, -0.165114, 0.361655 )
+
+[node name="large_buildingD2" parent="obstacles" index="44" instance=ExtResource( 13 )]
+transform = Transform( 0.334884, 0, -0.101178, 0, 1, 0, 0.101178, 0, 0.334884, -1.22943, -0.165114, -0.270096 )
+
+[node name="large_buildingD3" parent="obstacles" index="45" instance=ExtResource( 13 )]
+transform = Transform( 0.334884, 0, -0.101178, 0, 1, 0, 0.101178, 0, 0.334884, -0.373361, -0.165114, 0.338766 )
+
+[node name="large_buildingD5" parent="obstacles" index="46" instance=ExtResource( 13 )]
+transform = Transform( 0.229857, 0, -0.263723, 0, 1, 0, 0.263723, 0, 0.229857, 0.292227, -0.165114, -0.231738 )
+
+[node name="large_buildingD7" parent="obstacles" index="47" instance=ExtResource( 13 )]
+transform = Transform( 0.163487, 0, -8.88178e-16, 0, 1, 0, 8.88178e-16, 0, 0.163487, 1.82907, -0.165114, 0.248855 )
+
+[node name="large_buildingD6" parent="obstacles" index="48" instance=ExtResource( 13 )]
+transform = Transform( 0.347495, 0, -0.0403849, 0, 1, 0, 0.0403849, 0, 0.347495, 0.175186, -0.165114, -1.54999 )
+
+[node name="large_buildingD4" parent="obstacles" index="49" instance=ExtResource( 13 )]
+transform = Transform( 0.318883, 0, 0.143867, 0, 1, 0, -0.143867, 0, 0.318883, 0.833729, -0.165114, 2.25718 )
+
+[node name="rockC" parent="obstacles" index="50" instance=ExtResource( 23 )]
+transform = Transform( 0.101178, 0, 0.994868, 0, 11.8152, 0, -0.994868, 0, 0.101178, -0.367356, -0.164125, -1.1253 )
+
+[node name="rockC5" parent="obstacles" index="51" instance=ExtResource( 23 )]
+transform = Transform( 0.702397, 0, 0.360565, 0, 11.8152, 0, -0.360565, 0, 0.702397, -0.268795, -0.164125, -1.57499 )
+
+[node name="rockC2" parent="obstacles" index="52" instance=ExtResource( 23 )]
+transform = Transform( 0.685729, 0, 0.727856, 0, 11.8152, 0, -0.727856, 0, 0.685729, 0.334454, -0.164125, -0.754025 )
+
+[node name="rockC3" parent="obstacles" index="53" instance=ExtResource( 23 )]
+transform = Transform( -0.962108, 0, 0.272666, 0, 11.8152, 0, -0.272666, 0, -0.962108, 0.862578, -0.164125, -0.268151 )
+
+[node name="rockC7" parent="obstacles" index="54" instance=ExtResource( 23 )]
+transform = Transform( 0.897088, 0, -0.44185, 0, 11.8152, 0, 0.44185, 0, 0.897088, 1.41183, -0.164125, -0.273432 )
+
+[node name="rockC8" parent="obstacles" index="55" instance=ExtResource( 23 )]
+transform = Transform( 0.936243, 0, 0.351351, 0, 11.8152, 0, -0.351351, 0, 0.936243, 2.06142, -0.164125, -0.379056 )
+
+[node name="rockC6" parent="obstacles" index="56" instance=ExtResource( 23 )]
+transform = Transform( 0.665021, 0, -0.18847, 0, 11.8152, 0, 0.18847, 0, 0.665021, 0.720897, -0.164125, 0.292412 )
+
+[node name="rockC10" parent="obstacles" index="57" instance=ExtResource( 23 )]
+transform = Transform( 0.356776, 0, -0.592017, 0, 11.8152, 0, 0.592017, 0, 0.356776, 2.3528, -0.164125, 0.461412 )
+
+[node name="rockC11" parent="obstacles" index="58" instance=ExtResource( 23 )]
+transform = Transform( -0.403017, 0, -0.561561, 0, 11.8152, 0, 0.561561, 0, -0.403017, 2.38449, -0.164125, 0.894473 )
+
+[node name="rockC9" parent="obstacles" index="59" instance=ExtResource( 23 )]
+transform = Transform( -0.68885, 0, 0.0570937, 0, 11.8152, 0, -0.0570937, 0, -0.68885, 2.59573, -0.164125, 0.0336319 )
+
+[node name="rockC4" parent="obstacles" index="60" instance=ExtResource( 23 )]
+transform = Transform( 0.239161, 0, 1.21654, 0, 11.8152, 0, -1.21654, 0, 0.239161, 0.697302, -0.164125, -1.37591 )

@@ -1,0 +1,130 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://scenes/main_game/explosion_part_material.tres" type="Material" id=1]
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.658065 )
+colors = PoolColorArray( 1, 1, 1, 1, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+width = 218
+
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_rotate_y = true
+gravity = Vector3( 0, 10, 0 )
+initial_velocity = 2.0
+angular_velocity_random = 1.0
+angle = 720.0
+angle_random = 0.92
+color_ramp = SubResource( 4 )
+
+[sub_resource type="SphereMesh" id=2]
+material = ExtResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=17]
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_rotate_y = true
+direction = Vector3( 0, 1, 0 )
+gravity = Vector3( 0, -60, 0 )
+initial_velocity = 40.0
+initial_velocity_random = 1.0
+angular_velocity = 720.0
+angular_velocity_random = 1.0
+angle = 720.0
+angle_random = 1.0
+
+[sub_resource type="SpatialMaterial" id=19]
+resource_name = "paintYellow"
+vertex_color_use_as_albedo = true
+albedo_color = Color( 1, 0.741176, 0.258824, 1 )
+metallic = 1.0
+
+[sub_resource type="CubeMesh" id=18]
+material = SubResource( 19 )
+size = Vector3( 0.25, 0.25, 0.25 )
+
+[sub_resource type="SpatialMaterial" id=14]
+albedo_color = Color( 1, 0.988235, 0.482353, 1 )
+emission_enabled = true
+emission = Color( 0.960784, 0.411765, 0.0235294, 1 )
+emission_energy = 169.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SphereMesh" id=15]
+material = SubResource( 14 )
+radius = 2.0
+height = 4.0
+
+[sub_resource type="Animation" id=16]
+resource_name = "explode"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("explosion_particles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.05, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("glare:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.05, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("giblets:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.05, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ true, false ]
+}
+
+[node name="part_system" type="Spatial"]
+
+[node name="explosion_particles" type="Particles" parent="."]
+emitting = false
+amount = 32
+lifetime = 2.0
+one_shot = true
+speed_scale = 0.75
+explosiveness = 1.0
+local_coords = false
+process_material = SubResource( 1 )
+draw_pass_1 = SubResource( 2 )
+
+[node name="giblets" type="Particles" parent="."]
+emitting = false
+amount = 32
+one_shot = true
+explosiveness = 0.97
+local_coords = false
+process_material = SubResource( 17 )
+draw_pass_1 = SubResource( 18 )
+
+[node name="glare" type="MeshInstance" parent="."]
+visible = false
+mesh = SubResource( 15 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/explode = SubResource( 16 )

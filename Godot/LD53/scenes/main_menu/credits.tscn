@@ -1,0 +1,284 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scenes/main_menu/DroidSans.tres" type="DynamicFont" id=1]
+[ext_resource path="res://textures/Phone_3.png" type="Texture" id=2]
+[ext_resource path="res://scenes/main_menu/DroidSans-Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://textures/lava_1_diffuseOriginal.png" type="Texture" id=4]
+[ext_resource path="res://scenes/main_menu/credits.gd" type="Script" id=5]
+[ext_resource path="res://sound/mouse_over.wav" type="AudioStream" id=6]
+[ext_resource path="res://sound/select.wav" type="AudioStream" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 66
+outline_size = 7
+outline_color = Color( 0.00784314, 0.00784314, 0.00784314, 1 )
+extra_spacing_top = 2
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.67451, 0.341176, 0.341176, 1 )
+
+[sub_resource type="DynamicFont" id=3]
+outline_size = 1
+outline_color = Color( 0.00784314, 0.00784314, 0.00784314, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "fade"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource( 5 )
+
+[node name="background" type="TextureRect" parent="."]
+margin_right = 2048.0
+margin_bottom = 2048.0
+rect_scale = Vector2( 0.498385, 0.291243 )
+texture = ExtResource( 4 )
+stretch_mode = 1
+
+[node name="title" type="RichTextLabel" parent="."]
+margin_left = 297.0
+margin_right = 702.0
+margin_bottom = 91.0
+custom_colors/default_color = Color( 0.992157, 0.678431, 0.00784314, 1 )
+custom_fonts/normal_font = SubResource( 1 )
+text = " Uber - Heck"
+
+[node name="phone_background" type="RichTextLabel" parent="."]
+margin_left = 26.5606
+margin_top = 117.0
+margin_right = 66.5606
+margin_bottom = 157.0
+rect_scale = Vector2( 8.34027, 10.3443 )
+custom_styles/normal = SubResource( 2 )
+
+[node name="Phone3" type="Sprite" parent="."]
+position = Vector2( 194.561, 336 )
+scale = Vector2( 0.255225, 0.171228 )
+texture = ExtResource( 2 )
+
+[node name="tutorial" type="Button" parent="."]
+margin_left = 61.5606
+margin_top = 144.0
+margin_right = 220.561
+margin_bottom = 182.0
+rect_scale = Vector2( 1.7151, 1.68302 )
+custom_fonts/font = ExtResource( 1 )
+text = "Back to start"
+
+[node name="startgame" type="Button" parent="."]
+margin_left = 61.5606
+margin_top = 222.0
+margin_right = 222.561
+margin_bottom = 263.0
+rect_scale = Vector2( 1.69388, 1.72973 )
+custom_fonts/font = ExtResource( 1 )
+text = "Exit Game"
+
+[node name="credits so far" type="RichTextLabel" parent="."]
+margin_left = 390.0
+margin_top = 79.0
+margin_right = 1014.0
+margin_bottom = 593.0
+custom_fonts/normal_font = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+bbcode_enabled = true
+bbcode_text = "  
+ Godot - 
+
+ Audacity - 
+ 
+ Kenney -                                                 (Taxi, Roads, Rocks, Buildings, Food)
+
+ nafgames -                                                   (Lava Texture)
+
+ Yui Kinomoto -                                                                                      (Fire shader)
+ 
+ PerfectionNH - 
+  (Lava Environment Tutorial)
+ 
+ SRCoder - 
+  (Godot VehicleBody Tutorial)
+
+ Savino -                                                                                 (Arrow Model)
+ 
+ Pixabay -                                            (Additional Sound Effects)
+ 
+ AnneArkey -                                                                          (Menus and HUD)
+
+ RubixNoob13 -                                                                              (Spaghetti Code)
+ "
+text = "  
+ Godot - 
+
+ Audacity - 
+ 
+ Kenney -                                                 (Taxi, Roads, Rocks, Buildings, Food)
+
+ nafgames -                                                   (Lava Texture)
+
+ Yui Kinomoto -                                                                                      (Fire shader)
+ 
+ PerfectionNH - 
+  (Lava Environment Tutorial)
+ 
+ SRCoder - 
+  (Godot VehicleBody Tutorial)
+
+ Savino -                                                                                 (Arrow Model)
+ 
+ Pixabay -                                            (Additional Sound Effects)
+ 
+ AnneArkey -                                                                          (Menus and HUD)
+
+ RubixNoob13 -                                                                              (Spaghetti Code)
+ "
+scroll_active = false
+
+[node name="GodotLink" type="LinkButton" parent="credits so far"]
+margin_left = 66.0
+margin_top = 20.0
+margin_right = 256.0
+margin_bottom = 39.0
+custom_fonts/font = SubResource( 3 )
+text = "https://godotengine.org"
+
+[node name="AudacityLink" type="LinkButton" parent="credits so far"]
+margin_left = 85.0
+margin_top = 60.0
+margin_right = 275.0
+margin_bottom = 79.0
+focus_mode = 2
+custom_fonts/font = SubResource( 3 )
+text = "https://www.audacityteam.org"
+
+[node name="KenneyLink" type="LinkButton" parent="credits so far"]
+margin_left = 74.0
+margin_top = 100.0
+margin_right = 256.0
+margin_bottom = 119.0
+focus_mode = 2
+custom_fonts/font = SubResource( 3 )
+text = "https://www.kenney.nl"
+
+[node name="NafLink" type="LinkButton" parent="credits so far"]
+margin_left = 92.0
+margin_top = 140.0
+margin_right = 283.0
+margin_bottom = 159.0
+focus_mode = 2
+custom_fonts/font = SubResource( 3 )
+text = "https://nafgames.itch.io"
+
+[node name="YuiLink" type="LinkButton" parent="credits so far"]
+margin_left = 123.0
+margin_top = 180.0
+margin_right = 451.0
+margin_bottom = 199.0
+focus_mode = 2
+custom_fonts/font = SubResource( 3 )
+text = "https://godotshaders.com/author/arlez80"
+
+[node name="PerfLink" type="LinkButton" parent="credits so far"]
+margin_left = 123.0
+margin_top = 220.0
+margin_right = 455.0
+margin_bottom = 239.0
+focus_mode = 2
+custom_fonts/font = SubResource( 3 )
+text = "https://www.youtube.com/@PerfectioNH_"
+
+[node name="SrcLink" type="LinkButton" parent="credits so far"]
+margin_left = 83.0
+margin_top = 280.0
+margin_right = 376.0
+margin_bottom = 299.0
+focus_mode = 2
+custom_fonts/font = SubResource( 3 )
+text = "https://www.youtube.com/@SRCoder"
+
+[node name="SavinoLink" type="LinkButton" parent="credits so far"]
+margin_left = 72.0
+margin_top = 340.0
+margin_right = 375.0
+margin_bottom = 359.0
+focus_mode = 2
+custom_fonts/font = SubResource( 3 )
+text = "https://opengameart.org/users/savino"
+
+[node name="PixabayLink" type="LinkButton" parent="credits so far"]
+margin_left = 80.0
+margin_top = 380.0
+margin_right = 240.0
+margin_bottom = 399.0
+focus_mode = 2
+custom_fonts/font = SubResource( 3 )
+text = "https://pixabay.com"
+
+[node name="AnnieLink" type="LinkButton" parent="credits so far"]
+margin_left = 102.0
+margin_top = 420.0
+margin_right = 382.0
+margin_bottom = 439.0
+focus_mode = 2
+custom_fonts/font = SubResource( 3 )
+text = "https://ldjam.com/users/annearkey"
+
+[node name="RubixLink" type="LinkButton" parent="credits so far"]
+margin_left = 122.0
+margin_top = 460.0
+margin_right = 420.0
+margin_bottom = 479.0
+focus_mode = 2
+custom_fonts/font = SubResource( 3 )
+text = "https://ldjam.com/users/rubixnoob13"
+
+[node name="fade" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
+
+[node name="fader" type="AnimationPlayer" parent="."]
+anims/fade = SubResource( 5 )
+
+[node name="mouse_over" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -5.0
+
+[node name="mouse_select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[connection signal="mouse_entered" from="tutorial" to="." method="_on_tutorial_mouse_entered"]
+[connection signal="pressed" from="tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="mouse_entered" from="startgame" to="." method="_on_startgame_mouse_entered"]
+[connection signal="pressed" from="startgame" to="." method="_on_startgame_pressed"]
+[connection signal="pressed" from="credits so far/GodotLink" to="." method="_on_GodotLink_pressed"]
+[connection signal="pressed" from="credits so far/AudacityLink" to="." method="_on_AudacityLink_pressed"]
+[connection signal="pressed" from="credits so far/KenneyLink" to="." method="_on_KenneyLink_pressed"]
+[connection signal="pressed" from="credits so far/NafLink" to="." method="_on_NafLink_pressed"]
+[connection signal="pressed" from="credits so far/YuiLink" to="." method="_on_YuiLink_pressed"]
+[connection signal="pressed" from="credits so far/PerfLink" to="." method="_on_PerfLink_pressed"]
+[connection signal="pressed" from="credits so far/SrcLink" to="." method="_on_SrcLink_pressed"]
+[connection signal="pressed" from="credits so far/SavinoLink" to="." method="_on_SavinoLink_pressed"]
+[connection signal="pressed" from="credits so far/PixabayLink" to="." method="_on_PixabayLink_pressed"]
+[connection signal="pressed" from="credits so far/AnnieLink" to="." method="_on_AnnieLink_pressed"]
+[connection signal="pressed" from="credits so far/RubixLink" to="." method="_on_RubixLink_pressed"]
+[connection signal="animation_finished" from="fader" to="." method="_on_fader_animation_finished"]
